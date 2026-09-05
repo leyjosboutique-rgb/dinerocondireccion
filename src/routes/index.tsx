@@ -5,17 +5,17 @@ import { ImageSlot } from "@/components/ImageSlot";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Entender bien el dinero · De US$100 a US$15.000+" },
+      { title: "Entender bien el dinero · Tomá el control" },
       {
         name: "description",
         content:
-          "Aprendé por qué se te va el dinero, cómo armar una reserva de emergencia e invertir desde US$100. Libro digital + 7 bonos, acceso inmediato y garantía de 7 días.",
+          "Entendé qué está haciendo tu dinero, construí una reserva y aprendé a invertir desde US$100. Libro digital con 7 bonos y acceso de por vida.",
       },
-      { property: "og:title", content: "Entender bien el dinero · De US$100 a US$15.000+" },
+      { property: "og:title", content: "Entender bien el dinero · Tomá el control" },
       {
         property: "og:description",
         content:
-          "Ordená lo que ganás, blindá una reserva e invertí desde US$100. Libro digital con 7 bonos incluidos.",
+          "Dejá de reaccionar al dinero: entendé qué pasa con lo que ganás, protegelo y aprendé a hacerlo crecer.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -27,125 +27,121 @@ export const Route = createFileRoute("/")({
 const CHECKOUT = "#cb-precio";
 
 const CHIPS = [
-  "💵 Empezá con US$100",
-  "🧾 Dónde se te va la plata",
-  "🛡️ Tu reserva de emergencia",
-  "🧠 Mentalidad de inversor",
-  "📈 Fondos, ETF y rebalanceo",
-  "🎯 Control de riesgo",
-  "📖 15 minutos por día",
+  "💵 Descubrí dónde se está escapando tu dinero",
+  "🛡️ Construí una reserva que te proteja",
+  "📈 Empezá a invertir incluso desde US$100",
   "⚡ Acceso inmediato y de por vida",
 ];
 
 const PAINS = [
   {
-    t: "Cobrás, pagás todo y a los diez días no sabés dónde está la plata",
-    d: "No te fundiste en algo grande. Se fue en veinte cosas chicas y ninguna quedó anotada. A fin de mes te acordás de todo, menos de en qué se fue.",
+    t: "Cobrás… y dos semanas después ya no sabés qué pasó.",
+    d: "No hiciste una compra enorme. No te fuiste de viaje. No compraste algo que puedas señalar. Simplemente se fue: un poco acá, otro poco allá. Y cuando llega fin de mes, lo único claro es que trabajaste… pero no quedó nada.",
   },
   {
-    t: "Cada vez que aparece un gasto, vendés algo que te daba de comer",
-    d: "Se rompió el auto y tocaste el ahorro. Vino un mes flojo y vendiste la herramienta. Tapaste el agujero de hoy y te quedaste sin la máquina de mañana.",
+    t: "Cuando aparece un problema, tu futuro paga la cuenta.",
+    d: "Se rompe algo. Baja el trabajo. Un cliente no paga. Entonces usás el ahorro, vendés algo o usás la tarjeta. Solucionás el problema de hoy… pero hacés más difícil el mañana.",
   },
   {
-    t: 'Querés invertir, pero primero "tenés que juntar"',
-    d: "Esperás tener algo serio para empezar. Pasan los años, el peso vale menos y seguís esperando el mes en que sobre. Nunca sobra.",
+    t: "Querés invertir, pero seguís esperando tener suficiente.",
+    d: "Te decís: cuando me sobre, empiezo. Pero pasan los meses, después los años, y nunca sobra. Porque lo que sobra sin un sistema casi siempre encuentra una forma de desaparecer.",
   },
   {
-    t: "Un imprevisto y volvés a cero",
-    d: "Una muela, una cubierta, un cliente que no pagó. No hay colchón, entonces sale de la tarjeta. Y la tarjeta se paga el mes que viene con lo que ibas a guardar.",
+    t: "Un imprevisto te devuelve al punto cero.",
+    d: "Una reparación. Una cuenta inesperada. Una urgencia. Y otra vez empezás desde cero.",
   },
 ];
 
 const STEPS = [
   {
-    t: "Primero ves a dónde va",
-    d: "Un mes de registro y el reparto del ingreso en cuentas separadas el mismo día que cobrás. Sin el mapa no se mueve un peso.",
+    t: "VER",
+    d: "Primero descubrís qué está haciendo tu dinero: qué entra, qué sale, qué gastos importan y cuáles son esas pequeñas fugas que terminan decidiendo cómo llegás a fin de mes. Porque no podés dirigir algo que no podés ver.",
   },
   {
-    t: "Después separás lo que no se toca",
-    d: "La reserva de emergencia, calculada sobre lo que vos ganás de verdad. Es lo que hace que un mes malo no te vuelva a cero ni a la tarjeta.",
+    t: "PROTEGER",
+    d: "Después construís una reserva. Una parte de tu dinero que no está para gastar: está para protegerte. Para que un imprevisto no destruya lo que venías construyendo.",
   },
   {
-    t: "Y recién ahí la hacés crecer",
-    d: "Fondos, ETF, portafolio, rebalanceo y diversificación, desde cero y con montos chicos. Más la parte que nadie enseña: la cabeza del que invierte.",
+    t: "CRECER",
+    d: "Y recién entonces llega la inversión: fondos, ETF, diversificación, rebalanceo y control del riesgo. No desde la desesperación de ganar rápido, sino para construir algo que querés conservar y hacer crecer.",
   },
 ];
 
 const OUTCOMES = [
   {
-    b: "Vas a saber, sin abrir la app, cuánto de lo que cobrás es tuyo",
-    r: " y cuánto ya tiene dueño antes de que llegue.",
+    b: "Sabés cuánto dinero podés gastar sin culpa.",
+    r: " Porque cada parte ya tiene una dirección.",
   },
   {
-    b: "Vas a tener una reserva que aguanta un mes malo",
-    r: " sin que toques la tarjeta ni le pidas a nadie.",
+    b: "Un imprevisto deja de significar empezar desde cero.",
+    r: " Tenés una estructura pensada para protegerte.",
   },
   {
-    b: "Vas a poner tus primeros US$100 a trabajar esta semana,",
-    r: ' no el día en que "junte lo suficiente".',
+    b: "Ya no esperás tener miles para dar tu primer paso.",
+    r: " Empezás desde lo que hoy sí podés separar.",
   },
   {
-    b: "Vas a poder decir que no a un gasto",
-    r: " sin sentir que te privás, porque vas a saber exactamente qué te está comprando ese no.",
+    b: "Podés separar tus primeros US$100 con intención.",
+    r: " Sin improvisar ni comprometer lo que necesitás.",
   },
   {
-    b: "Vas a empezar a mirar tu plata como la mira un inversor:",
-    r: " no cuánto tenés hoy, sino en qué se puede convertir si la dejás trabajar.",
+    b: "Entendés qué estás haciendo antes de invertir.",
+    r: " Y tomás decisiones con más criterio y menos reacción.",
   },
 ];
 
 const INCLUDES = [
-  "El mapa de tu mes: dónde se te va la plata que jurás que no gastaste",
-  "Cómo repartir lo que cobrás el mismo día que entra, antes de tocarlo",
-  "Cuánto tiene que tener tu reserva de emergencia según lo que ganás",
-  "Cómo salir de una deuda sin vender lo que te da de comer",
-  "Qué hacer con tus primeros US$100: el primer peso invertido, paso a paso",
-  "Fondos, ETF, portafolio, rebalanceo y diversificación, explicados en criollo",
-  "Control de riesgo y qué hacer el día que el mercado cae: el plan a 5 años",
-  "La mentalidad del inversor: por qué dos personas con la misma plata terminan distinto",
+  "Entender qué está pasando con tu dinero",
+  "Detectar fugas y gastos invisibles",
+  "Organizar el dinero de forma consciente",
+  "Construir una reserva de seguridad",
+  "Manejar deudas sin improvisar",
+  "Entender cómo funcionan las primeras inversiones",
+  "Conocer ETF, fondos, diversificación y control del riesgo",
+  "Empezar incluso si hoy solo podés separar US$100",
 ];
 
 const BONUSES = [
   {
     n: 1,
     t: "El Sistema de las 3 Cuentas: cómo repartir lo que cobrás el mismo día que entra",
-    d: "Tres cuentas, tres porcentajes y una regla: se reparte antes de gastar, no con lo que sobra.",
+    d: "Para que tu dinero no se reparta solo mientras gastás. Usá tres cuentas, tres porcentajes y una regla para decidir su destino apenas cobrás.",
     v: "$12.000",
   },
   {
     n: 2,
     t: "La Planilla del Mes: dónde se te va la plata que jurás que no gastaste",
-    d: "Cargás 30 días y te muestra sola las tres fugas que se comen tu sueldo.",
+    d: "Para que no tengas que organizar todo de memoria. Registrá 30 días y detectá con claridad las fugas que se comen tu sueldo.",
     v: "$10.000",
   },
   {
     n: 3,
     t: "Tu Primer Fondo de Emergencia: cuánto guardar si cobrás por mes y en pesos",
-    d: "La cuenta exacta para aguantar tres meses, y dónde ponerlo para que no se lo coma la inflación.",
+    d: "Para que un imprevisto no te devuelva a cero. Calculá cuánto necesitás para tres meses y dónde resguardarlo.",
     v: "$11.000",
   },
   {
     n: 4,
     t: "Las 12 Preguntas Antes de Comprar Algo Caro",
-    d: "La lista que hacés en dos minutos parado en el local. Si no pasa nueve de doce, no lo comprás.",
+    d: "Para que una compra impulsiva no decida por vos. Respondé 12 preguntas en dos minutos y comprá con más criterio.",
     v: "$9.000",
   },
   {
     n: 5,
     t: "Qué Hacer con tus Primeros US$100 (y con los Primeros US$1.000)",
-    d: "Dos hojas de ruta separadas, con los montos, el orden y los errores más comunes.",
+    d: "Para que dejar de esperar sea más fácil. Seguí dos hojas de ruta con montos, orden y errores comunes para dar tu primer paso.",
     v: "$14.000",
   },
   {
     n: 6,
     t: "Cómo Salir de una Deuda Sin Vender lo que te Da de Comer",
-    d: "El orden en que se pagan las deudas, qué se negocia y qué no.",
+    d: "Para que resolver una deuda no destruya tu fuente de ingresos. Conocé qué pagar primero, qué negociar y qué proteger.",
     v: "$13.000",
   },
   {
     n: 7,
     t: "Diccionario del Dinero: 90 términos que se usan para dejarte afuera",
-    d: "Todo el vocabulario que te hace asentir sin entender, explicado en dos líneas.",
+    d: "Para que los términos financieros no te dejen afuera. Consultá 90 conceptos explicados en dos líneas y decidí entendiendo.",
     v: "$10.000",
   },
 ];
