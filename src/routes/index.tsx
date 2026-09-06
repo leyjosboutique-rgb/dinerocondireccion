@@ -365,17 +365,15 @@ function LandingPage() {
       {/* 1. HERO */}
       <header className="hero-glow px-5 pb-16 pt-12 sm:pt-16">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-balance text-3xl font-extrabold leading-[1.1] sm:text-5xl">
-            ¿Tu dinero desaparece antes de que tengas tiempo de{" "}
-            <span className="text-accent">decidir qué hacer con él</span>?
+          <h1 className="text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
+            El problema no es que tu dinero desaparezca.
+            <br />
+            El problema es que decides qué hacer con él{" "}
+            <span className="text-accent">demasiado tarde</span>.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg font-semibold sm:text-xl">
             Trabajas. Recibes dinero. Pagas algunas cosas. Y cuando finalmente piensas en ahorrar,
             invertir o avanzar… queda mucho menos de lo que esperabas.
-          </p>
-          <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
-            No siempre se trata de cuánto ganas. Muchas veces se trata de decidir qué hacer con tu
-            dinero antes de que el mes lo decida por ti.
           </p>
           <div className="mt-8 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="marquee-track gap-3">
@@ -394,10 +392,13 @@ function LandingPage() {
               label="[VIDEO O IMAGEN PRINCIPAL DEL PRODUCTO — SUBIR DESPUÉS]"
               ratio="1 / 1"
             />
-            <p className="mt-4 eyebrow">Entender bien el dinero</p>
+            <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
+              No siempre se trata de cuánto ganas. Muchas veces se trata de decidir qué hacer con
+              tu dinero antes de que el mes lo decida por ti.
+            </p>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
-            Valoración: <Stars /> 4.9 · 8.432 lectores
+            4.9 <Stars /> + 8.432 lectores
           </p>
           <a href={CHECKOUT} className="btn-cta mt-8">
             Quiero entender qué está pasando con mi dinero
