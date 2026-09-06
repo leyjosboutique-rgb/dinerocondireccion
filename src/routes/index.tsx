@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ImageSlot } from "@/components/ImageSlot";
 
 export const Route = createFileRoute("/")({
@@ -36,13 +36,11 @@ const PRICING = {
 };
 const PRICE_LABEL = `${PRICING.price} ${PRICING.currency}`;
 
-/** Chips horizontales del hero — cada uno abre una tensión distinta. */
-const CHIPS = [
-  "🔎 ¿Dónde se está yendo?",
-  "🛡️ Tu colchón antes del próximo golpe",
-  "🧠 La mentalidad antes de invertir",
-  "📈 Tus primeros US$100",
-  "⚖️ Cómo crecer sin ir a ciegas",
+/** Progresión de 3 pasos debajo de la imagen del hero. */
+const HERO_STEPS = [
+  { t: "Entiende", d: "Qué está pasando con tu dinero" },
+  { t: "Protege", d: "Para dejar de volver a cero" },
+  { t: "Avanza", d: "Cuando por fin empiezas a tener margen" },
 ];
 
 /** Sección 2 — Identificación inmediata. */
@@ -349,26 +347,17 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           <p className="eyebrow">Entender bien el dinero</p>
 
-          {/* 2. Titular principal */}
-          <h1 className="mt-3 text-balance text-2xl font-extrabold leading-[1.2] sm:text-4xl">
-            Descubre <span className="text-accent">por qué tu dinero se te va</span>, cómo evitar
-            que un imprevisto <span className="text-accent">te devuelva a cero</span> y cómo
-            empezar a hacer que <span className="text-accent">lo que te sobra trabaje para ti</span>
+          {/* 2. Titular principal — elemento dominante */}
+          <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
+            ¿Sientes que con tu dinero siempre estás{" "}
+            <span className="text-accent">apagando incendios</span>?
           </h1>
 
-          {/* 3. Chips horizontales */}
-          <div className="mt-8 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-            <div className="marquee-track gap-3">
-              {[...CHIPS, ...CHIPS].map((c, i) => (
-                <span
-                  key={i}
-                  className="whitespace-nowrap rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted-foreground"
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
+          {/* 3. Subtítulo de pacing */}
+          <p className="mx-auto mt-5 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
+            Cobras. Resuelves lo urgente. Surge algo nuevo. Y cuando parece que vas a avanzar…
+            vuelves a empezar.
+          </p>
 
           {/* 4. Imagen central de transformación */}
           <div className="mx-auto mt-10 max-w-md">
@@ -378,50 +367,49 @@ function LandingPage() {
             />
           </div>
 
-          {/* 5. Copy debajo de la imagen */}
-          <div className="mx-auto mt-6 max-w-xl text-pretty text-left sm:text-center">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              La mayoría intenta <strong className="font-bold text-foreground">empezar por el final</strong>: ahorrar
-              más, invertir cuanto antes y buscar cómo hacer crecer su dinero.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Pero hay una pregunta que casi nadie se hace: ¿qué sentido tiene intentar hacer crecer
-              un dinero que todavía no sabes <strong className="font-bold text-foreground">por qué desaparece</strong> o
-              que cualquier imprevisto puede obligarte a utilizar?
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Entender bien el dinero te ayuda a poner las cosas en el orden correcto: primero
-              descubres qué está drenando tu avance, después construyes una base para{" "}
-              <strong className="font-bold text-foreground">no volver a empezar desde cero</strong> y,{" "}
-              <strong className="font-bold text-foreground">cuando por fin tienes margen</strong>,
-              aprendes a pensar el siguiente paso sin ir a ciegas.
-            </p>
+          {/* 5. Progresión de 3 pasos */}
+          <div className="mx-auto mt-9 flex max-w-2xl flex-col items-stretch justify-center gap-2 sm:flex-row sm:items-center">
+            {HERO_STEPS.map((s, i) => (
+              <Fragment key={s.t}>
+                <div className="card-surface flex-1 px-5 py-4 text-center">
+                  <p className="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-accent">
+                    {s.t}
+                  </p>
+                  <p className="mt-1 text-xs leading-snug text-muted-foreground">{s.d}</p>
+                </div>
+                {i < HERO_STEPS.length - 1 && (
+                  <span className="rotate-90 text-lg text-muted-foreground/50 sm:rotate-0" aria-hidden="true">
+                    →
+                  </span>
+                )}
+              </Fragment>
+            ))}
           </div>
 
           {/* 6. Frase de mecanismo */}
           <p className="mx-auto mt-8 max-w-md text-balance font-display text-lg font-extrabold leading-snug sm:text-xl">
-            No se trata de hacer más con tu dinero. Se trata de dejar de intentar hacerlo todo en
-            el orden equivocado.
+            El problema no siempre es cuánto ganas. A veces es que nadie te enseñó{" "}
+            <span className="text-accent">qué hacer primero</span>.
           </p>
 
-          {/* 7. Prueba social */}
-          <p className="mt-8 text-sm text-muted-foreground">
-            4.9 <Stars /> + 8.432 lectores
-          </p>
-
-          {/* 8. CTA */}
-          <a href={CHECKOUT} className="btn-cta mt-6">
-            Quiero dejar de ir a ciegas con mi dinero
+          {/* 7. CTA */}
+          <a href={CHECKOUT} className="btn-cta mt-8">
+            Quiero entender bien mi dinero
           </a>
 
-          {/* 9. Microcopy de fricción */}
+          {/* 8. Microcopy de fricción */}
           <p className="mt-3 text-xs text-muted-foreground">
-            Acceso inmediato · Garantía de 7 días · Pago único
+            Acceso inmediato · Pago único · Garantía de 7 días
+          </p>
+
+          {/* 9. Prueba social */}
+          <p className="mt-6 text-sm text-muted-foreground">
+            4.9 <Stars /> + 8.432 lectores
           </p>
         </div>
 
         {/* 10. Logos / autoridad */}
-        <div className="mx-auto mt-14 max-w-4xl border-t border-border/60 pt-8 text-center">
+        <div className="mx-auto mt-10 max-w-4xl border-t border-border/60 pt-8 text-center">
           <p className="eyebrow">Este libro fue visto en</p>
           <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
             <div className="marquee-track gap-4">
