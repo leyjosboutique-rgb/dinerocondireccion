@@ -5,20 +5,20 @@ import { ImageSlot } from "@/components/ImageSlot";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Entender bien el dinero · Organiza tu dinero desde cero" },
+      { title: "Entender bien el dinero · Deja de improvisar con tu dinero" },
       {
         name: "description",
         content:
-          "Guía práctica para saber a dónde se va tu dinero, crear una reserva y entender cómo dar tus primeros pasos hacia la inversión, aunque hoy no tengas grandes ingresos.",
+          "El problema no es solo que tu dinero desaparezca. Es que decides qué hacer con él demasiado tarde. Una guía para dejar de improvisar y entender qué hacer primero.",
       },
       {
         property: "og:title",
-        content: "Entender bien el dinero · Organiza tu dinero desde cero",
+        content: "Entender bien el dinero · Deja de improvisar con tu dinero",
       },
       {
         property: "og:description",
         content:
-          "No necesitas ganar más para tener control. Primero necesitas saber qué hacer con el dinero que ya ganas.",
+          "¿Tu dinero desaparece antes de que tengas tiempo de decidir qué hacer con él? Descubre por qué y qué hacer primero.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,46 +49,70 @@ const CHIPS = [
   "⚡ Acceso inmediato · Pago único",
 ];
 
-const PAINS = [
+/** Sección 2 — El espejo: línea de tiempo del mes típico. */
+const MIRROR = [
   {
-    t: "Recibes dinero… y pocos días después ya no sabes dónde está.",
-    d: "No sientes que hayas gastado demasiado, pero cuando revisas tu cuenta, el dinero simplemente desapareció.",
+    n: "1",
+    t: "Llega el dinero",
+    d: "Por unos días sientes tranquilidad. Piensas: “Este mes sí voy a organizarme.”",
   },
   {
-    t: "Cada gasto parece pequeño… hasta que llega el final del mes.",
-    d: "No es necesariamente una compra grande. Son muchas decisiones pequeñas que nadie te enseñó a detectar.",
+    n: "2",
+    t: "Empiezan los gastos normales",
+    d: "Comida. Transporte. Pagos. Suscripciones. Compras pequeñas. Nada parece demasiado importante por separado.",
   },
   {
-    t: "Quieres invertir, pero sientes que primero necesitas tener mucho más dinero.",
-    d: "Y mientras esperas ganar más, sigues sin construir el hábito de hacer crecer lo que ya tienes.",
+    n: "3",
+    t: "Aparece algo inesperado",
+    d: "Y el dinero que pensabas guardar termina teniendo otro destino.",
   },
   {
-    t: "Sabes que deberías organizar tus finanzas, pero no sabes por dónde comenzar.",
-    d: "Hay demasiados consejos, demasiadas opiniones y ninguna ruta clara para alguien que empieza desde cero.",
-  },
-];
-
-const STEPS = [
-  {
-    t: "Primero entiendes",
-    d: "Descubres exactamente hacia dónde se está yendo tu dinero.",
-  },
-  {
-    t: "Después organizas",
-    d: "Creas un sistema para que cada parte de tu dinero tenga una función antes de gastarla.",
-  },
-  {
-    t: "Y entonces comienzas a crecer",
-    d: "Construyes una reserva y empiezas a comprender cómo dar tus primeros pasos hacia la inversión de forma consciente.",
+    n: "4",
+    t: "Llega el final del mes",
+    d: "Y vuelve la misma pregunta: “¿En qué se fue todo?”",
   },
 ];
 
-const OUTCOMES = [
-  "Puedes ver con claridad cuánto dinero realmente tienes disponible.",
-  "Dejas de llegar al final del mes preguntándote en qué se fue todo.",
-  "Comienzas a construir una reserva para que un imprevisto no se convierta automáticamente en una crisis.",
-  "Empiezas a tomar decisiones con tu dinero antes de que el impulso las tome por ti.",
-  "Tienes una ruta clara para comenzar a aprender sobre inversión sin sentir que necesitas ser experto.",
+/** Sección 5 — El nuevo mecanismo. */
+const MECHANISM = [
+  {
+    n: "01",
+    t: "Claridad",
+    d: "Entender qué está ocurriendo realmente con tu dinero.",
+  },
+  {
+    n: "02",
+    t: "Control",
+    d: "Decidir qué función tendrá antes de que desaparezca en gastos automáticos.",
+  },
+  {
+    n: "03",
+    t: "Protección",
+    d: "Comenzar a construir una base para que un imprevisto no te obligue a empezar desde cero.",
+  },
+  {
+    n: "04",
+    t: "Crecimiento",
+    d: "Comprender cómo dar los siguientes pasos cuando ya tienes una base más clara.",
+  },
+];
+
+/** Sección 6 — Crear deseo. */
+const DESIRE_LIST = [
+  "No preguntarte constantemente: “¿Cuánto puedo gastar?”",
+  "No sentir culpa después de cada compra.",
+  "No depender de recordar mentalmente todos tus gastos.",
+  "No sentir que un imprevisto puede desordenar todo.",
+];
+
+/** Sección 7 — Por qué los consejos anteriores no fueron suficientes. */
+const PREVIOUS_ADVICE = [
+  "Ahorrar",
+  "Invertir",
+  "Eliminar gastos",
+  "Crear presupuestos",
+  "Generar más ingresos",
+  "Crear fondos de emergencia",
 ];
 
 const INCLUDES = [
@@ -104,7 +128,7 @@ const BONUSES = [
   {
     n: 1,
     short: "El Sistema de las 3 Cuentas",
-    o: "“No sé cómo organizar mi dinero sin sentir que tengo que controlar cada gasto.”",
+    o: "“No sé cómo organizar mi dinero.”",
     t: "El Sistema de las 3 Cuentas",
     d: "Para ayudarte a entender cómo separar tu dinero según su función y tomar decisiones con más claridad.",
     x: "De “no sé qué hacer con mi dinero” a “entiendo cuál es el siguiente paso para cada parte de mi dinero”.",
@@ -113,7 +137,7 @@ const BONUSES = [
   {
     n: 2,
     short: "La Planilla del Mes",
-    o: "“Siempre termino preguntándome a dónde se fue mi dinero.”",
+    o: "“No sé exactamente a dónde se va mi dinero.”",
     t: "La Planilla del Mes",
     d: "Para ayudarte a ver con mayor claridad tus ingresos, gastos y decisiones financieras.",
     x: "De “sé que gasto, pero no sé exactamente en qué” a “puedo ver qué está sucediendo con mi dinero”.",
@@ -122,7 +146,7 @@ const BONUSES = [
   {
     n: 3,
     short: "Tu Primer Fondo de Emergencia",
-    o: "“No puedo avanzar porque siempre aparece un gasto inesperado.”",
+    o: "“Siempre aparece algo inesperado.”",
     t: "Tu Primer Fondo de Emergencia",
     d: "Para ayudarte a comenzar a construir una reserva que te permita enfrentar imprevistos con mayor tranquilidad.",
     x: "De vivir apagando incendios a comenzar a construir una red de seguridad.",
@@ -131,7 +155,7 @@ const BONUSES = [
   {
     n: 4,
     short: "Las 12 Preguntas Antes de Comprar Algo Caro",
-    o: "“Sé que debería cuidar más mi dinero, pero termino tomando decisiones impulsivas.”",
+    o: "“Termino tomando malas decisiones cuando voy a gastar.”",
     t: "Las 12 Preguntas Antes de Comprar Algo Caro",
     d: "Una guía para ayudarte a detenerte, evaluar una decisión importante y pensar antes de comprometer tu dinero.",
     x: "De comprar por impulso a tomar decisiones con mayor intención.",
@@ -140,7 +164,7 @@ const BONUSES = [
   {
     n: 5,
     short: "Tus Primeros US$100",
-    o: "“No gano suficiente dinero para comenzar a invertir.”",
+    o: "“No tengo suficiente dinero para comenzar.”",
     t: "Tus Primeros US$100",
     d: "Para ayudarte a reducir la barrera mental de creer que necesitas tener una gran cantidad de dinero antes de comenzar a aprender.",
     x: "De “invertir es para cuando gane más” a “puedo comenzar a aprender y prepararme desde ahora”.",
@@ -149,7 +173,7 @@ const BONUSES = [
   {
     n: 6,
     short: "Cómo Salir de una Deuda Sin Vender tu Alma",
-    o: "“Tengo deudas. Primero debería resolver eso antes de preocuparme por mejorar mis finanzas.”",
+    o: "“Tengo deudas.”",
     t: "Cómo Salir de una Deuda Sin Vender tu Alma",
     d: "Para ayudarte a abordar tus obligaciones pendientes con mayor claridad y evitar decisiones financieras desesperadas.",
     x: "De sentir que tus deudas controlan todas tus decisiones a recuperar una dirección más clara.",
@@ -158,7 +182,7 @@ const BONUSES = [
   {
     n: 7,
     short: "El Dinero",
-    o: "“Sé lo que debería hacer, pero siempre termino repitiendo los mismos errores.”",
+    o: "“Sé lo que debería hacer, pero termino repitiendo los mismos patrones.”",
     t: "El Dinero",
     d: "Porque mejorar tus finanzas no depende únicamente de conocer números. También depende de reconocer las decisiones y patrones que repites sin darte cuenta.",
     x: "De repetir decisiones en automático a comenzar a reconocer los patrones detrás de ellas.",
@@ -175,15 +199,15 @@ const BONUSES = [
  *  - "termotanque" → "calentador de agua"
  *  - "una boludez" → "algo simple"
  *  - "laburando" → "trabajando"
- * Por pedido de Lele, ya NO se muestra la ciudad de los compradores (para
- * no señalar un solo país), aunque los testimonios siguen siendo reales.
+ * Por pedido de Lele, no se muestra la ciudad de los compradores (para no
+ * señalar un solo país), aunque los testimonios siguen siendo reales.
  * La 4ª categoría del brief ("no sabía nada de finanzas o inversiones")
  * queda como espacio reservado: NO se inventó ningún testimonio para
  * completarla — se agrega apenas Lele comparta uno real.
  */
 const REVIEW_GROUPS = [
   {
-    objection: "“Pensaba que necesitaba ganar más para comenzar.”",
+    objection: "“Pensaba que mi problema era únicamente ganar poco.”",
     items: [
       {
         q: "Hice la planilla un mes entero por hacerle caso. Descubrí que se me iban casi cien mil pesos en cosas que ni recordaba. No gano un peso más que antes y ahora me queda.",
@@ -196,7 +220,7 @@ const REVIEW_GROUPS = [
     ],
   },
   {
-    objection: "“No sabía por dónde comenzar.”",
+    objection: "“Yo tampoco sabía por dónde comenzar.”",
     items: [
       {
         q: "Lo leí en cuatro noches, quince minutos por vez. No es un libro de motivación: te hace sacar la calculadora.",
@@ -205,7 +229,7 @@ const REVIEW_GROUPS = [
     ],
   },
   {
-    objection: "“Sabía que debía organizarme, pero nunca lograba hacerlo.”",
+    objection: "“Siempre intentaba organizarme y terminaba abandonando.”",
     items: [
       {
         q: "Lo que más me sirvió fue lo de las tres cuentas. Cobro y reparto el mismo día. Es algo simple y me cambió el mes entero.",
@@ -218,7 +242,7 @@ const REVIEW_GROUPS = [
     ],
   },
   {
-    objection: "“No sabía nada sobre finanzas o inversiones.”",
+    objection: "“Pensaba que necesitaba saber más antes de empezar.”",
     items: [], // TODO(Lele): pegar aquí el testimonio real y se muestra automáticamente.
   },
 ];
@@ -230,21 +254,6 @@ const FEATURED = {
   insight: "Que no hacía falta tener capital para empezar.",
   after: "Comenzó con el monto mínimo que indica el libro.",
 };
-
-const MICRO_OBJECTIONS = [
-  {
-    q: "“No gano lo suficiente todavía.”",
-    a: "Precisamente por eso es importante comenzar entendiendo qué hacer con el dinero que ya tienes.",
-  },
-  {
-    q: "“No entiendo nada de inversiones.”",
-    a: "No necesitas experiencia previa para comenzar por los conceptos fundamentales.",
-  },
-  {
-    q: "“Tengo miedo de comprar y no usarlo.”",
-    a: "El material está diseñado para que puedas avanzar paso a paso y a tu propio ritmo.",
-  },
-];
 
 const FAQS = [
   {
@@ -353,20 +362,20 @@ function LandingPage() {
         </span>
       </div>
 
-      {/* HERO */}
+      {/* 1. HERO */}
       <header className="hero-glow px-5 pb-16 pt-12 sm:pt-16">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-balance text-3xl font-extrabold leading-[1.1] sm:text-5xl">
-            ¿Sientes que trabajas, ganas dinero… y aun así nunca sabes exactamente{" "}
-            <span className="text-accent">a dónde se fue</span>?
+            ¿Tu dinero desaparece antes de que tengas tiempo de{" "}
+            <span className="text-accent">decidir qué hacer con él</span>?
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg font-semibold sm:text-xl">
-            Aprende a organizar tu dinero, dejar de llegar justo a fin de mes, crear una reserva y
-            comenzar a entender cómo invertir, incluso si hoy no tienes grandes ingresos.
+            Trabajas. Recibes dinero. Pagas algunas cosas. Y cuando finalmente piensas en ahorrar,
+            invertir o avanzar… queda mucho menos de lo que esperabas.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
-            No necesitas ganar más para empezar a tener control. Primero necesitas saber qué hacer
-            con el dinero que ya ganas.
+            No siempre se trata de cuánto ganas. Muchas veces se trata de decidir qué hacer con tu
+            dinero antes de que el mes lo decida por ti.
           </p>
           <div className="mt-8 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="marquee-track gap-3">
@@ -385,13 +394,13 @@ function LandingPage() {
               label="[VIDEO O IMAGEN PRINCIPAL DEL PRODUCTO — SUBIR DESPUÉS]"
               ratio="1 / 1"
             />
-            <p className="mt-4 eyebrow">Guía práctica para organizar tu dinero desde cero</p>
+            <p className="mt-4 eyebrow">Entender bien el dinero</p>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
             Valoración: <Stars /> 4.9 · 8.432 lectores
           </p>
           <a href={CHECKOUT} className="btn-cta mt-8">
-            Quiero tomar el control de mi dinero
+            Quiero entender qué está pasando con mi dinero
           </a>
           <p className="mt-3 text-xs text-muted-foreground">
             Acceso inmediato · Pago único · Material digital
@@ -424,97 +433,166 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* 2. Identificación */}
+      {/* 2. El espejo */}
       <Section
-        eyebrow="Quizás te suena familiar"
-        title="Si alguna de estas situaciones te resulta familiar, no significa que seas malo con el dinero. Simplemente nadie te enseñó a organizarlo."
+        eyebrow="¿Te suena familiar?"
+        title="Quizás esto es lo que ocurre cada mes sin que te des cuenta…"
       >
-        <div className="grid gap-5 sm:grid-cols-2">
-          {PAINS.map((p) => (
-            <article key={p.t} className="card-surface p-6">
-              <h3 className="text-lg font-bold">{p.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {MIRROR.map((m) => (
+            <article key={m.t} className="card-surface p-6">
+              <span className="font-display text-4xl font-black text-accent/40">{m.n}</span>
+              <h3 className="mt-2 text-base font-bold uppercase leading-snug">{m.t}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.d}</p>
             </article>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <a href={CHECKOUT} className="btn-cta">
-            Sí, esto me sucede → quiero saber qué hacer
+        <div className="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
+          <p className="text-muted-foreground">
+            El problema no es que no quieras mejorar.
+          </p>
+          <p className="mt-1 font-display text-lg font-extrabold">
+            Es que estás intentando tomar decisiones demasiado tarde.
+          </p>
+          <a href={CHECKOUT} className="btn-cta mt-5">
+            Sí, esto me pasa → quiero cambiarlo
           </a>
         </div>
       </Section>
 
-      {/* 3. Reframe */}
-      <Section>
-        <div className="grid items-center gap-8 md:grid-cols-2">
-          <ImageSlot label="[IMAGEN DE APOYO — SUBIR DESPUÉS]" ratio="4 / 3" />
-          <div>
-            <h2 className="text-2xl font-extrabold sm:text-3xl">
-              El problema no es solamente cuánto ganas. Es que nadie te enseñó{" "}
-              <span className="text-accent">qué hacer con tu dinero cuando llega</span>.
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Cuando no existe un sistema, el dinero toma decisiones por ti. Se va primero en lo
-              urgente, después en lo cómodo… y al final no queda nada para construir tranquilidad.
-            </p>
-          </div>
+      {/* 3. El costo de seguir improvisando */}
+      <Section title="El problema no es solo perder dinero. Es seguir perdiendo meses.">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-muted-foreground">
+            Porque cada mes que pasa sin un sistema claro puede sentirse igual. Te prometes que vas
+            a ahorrar. Piensas que cuando ganes un poco más será diferente. Guardas consejos sobre
+            dinero que después nunca aplicas. Y cuando llega el siguiente mes, vuelves a empezar
+            desde el mismo lugar.
+          </p>
+          <p className="mt-6 text-lg font-semibold">
+            No porque no seas capaz. Sino porque estás intentando avanzar sin un orden claro.
+          </p>
         </div>
       </Section>
 
-      {/* 4. Método */}
-      <Section eyebrow="El método" title="Tres pasos, en el orden correcto">
-        <div className="grid gap-5 md:grid-cols-3">
-          {STEPS.map((s, i) => (
+      {/* 4. El gran reframe */}
+      <Section title="Quizás no necesitas ganar más dinero primero. Quizás necesitas decidir antes.">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-muted-foreground">
+            Cuando tu dinero llega sin una función clara, otras cosas terminan decidiendo por él:
+            tus gastos, tus urgencias, tus impulsos, tus imprevistos, las decisiones que tomas en
+            automático.
+          </p>
+        </div>
+        <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-accent/30 bg-accent/5 p-8 text-center">
+          <p className="font-display text-xl font-extrabold uppercase leading-snug sm:text-2xl">
+            El dinero sin dirección siempre encuentra una dirección.
+          </p>
+        </div>
+      </Section>
+
+      {/* 5. El nuevo mecanismo */}
+      <Section
+        eyebrow="El nuevo mecanismo"
+        title="No necesitas hacerlo todo de una vez. Necesitas saber qué va primero."
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {MECHANISM.map((s) => (
             <article key={s.t} className="card-surface p-6">
-              <span className="font-display text-4xl font-black text-accent/40">{i + 1}</span>
-              <h3 className="mt-2 text-lg font-bold uppercase">{s.t}</h3>
+              <span className="font-display text-3xl font-black text-accent/40">{s.n}</span>
+              <h3 className="mt-2 text-base font-bold uppercase">{s.t}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
             </article>
           ))}
         </div>
         <div className="mt-8 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
           <p className="font-display text-lg font-extrabold uppercase leading-snug sm:text-xl">
-            El cambio no comienza cuando ganas más.
-            <br />
-            Comienza cuando dejas de preguntarte a dónde se fue tu dinero.
+            Primero entiendes. Después decides. Luego construyes.
           </p>
           <a href={CHECKOUT} className="btn-cta mt-5">
-            Quiero aprender el método
+            Quiero seguir este orden
           </a>
         </div>
       </Section>
 
-      {/* 5. Resultados */}
-      <Section
-        eyebrow="La transformación"
-        title="Esto es lo que puede cambiar cuando dejas de manejar tu dinero en automático"
-      >
-        <ul className="space-y-4">
-          {OUTCOMES.map((o, i) => (
-            <li key={o} className="card-surface flex gap-4 p-5">
-              <span className="font-display text-lg font-black text-accent/50">
-                {String(i + 1).padStart(2, "0")}
+      {/* 6. Crear deseo */}
+      <Section title="Imagina recibir tu dinero y ya saber qué hacer con él.">
+        <div className="mx-auto max-w-2xl">
+          <ul className="space-y-4">
+            {DESIRE_LIST.map((d) => (
+              <li key={d} className="card-surface flex gap-3 p-5">
+                <span className="text-accent">✓</span>
+                <p className="text-sm leading-relaxed text-muted-foreground">{d}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 text-center">
+            <p className="text-lg font-semibold">
+              No se trata de controlar cada centavo de tu vida.
+            </p>
+            <p className="mt-1 font-display text-xl font-extrabold text-accent">
+              Se trata de que tu dinero deje de controlarte a ti.
+            </p>
+            <a href={CHECKOUT} className="btn-cta mt-6">
+              Quiero que mi dinero deje de controlarme
+            </a>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7. Por qué los consejos anteriores no fueron suficientes */}
+      <Section title="El problema probablemente no es que te falte información. Probablemente ya tienes demasiada.">
+        <div className="mx-auto max-w-2xl">
+          <p className="text-center text-muted-foreground">Ya has visto consejos sobre:</p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {PREVIOUS_ADVICE.map((a) => (
+              <span
+                key={a}
+                className="rounded-full border border-border bg-surface px-4 py-2 text-sm text-muted-foreground"
+              >
+                {a}
               </span>
-              <p className="text-sm leading-relaxed text-muted-foreground">{o}</p>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 text-center">
-          <a href={CHECKOUT} className="btn-cta">
-            Quiero comenzar a organizar mi dinero
-          </a>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-muted-foreground">
+            Todo parece importante. Todo parece urgente. Y cuando todo parece importante, no sabes
+            qué hacer primero.
+          </p>
+          <div className="mt-8 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
+            <p className="text-muted-foreground">
+              Entender bien el dinero no fue creado para darte más consejos aislados.
+            </p>
+            <p className="mt-1 font-display text-lg font-extrabold text-accent">
+              Fue creado para ayudarte a entender el orden.
+            </p>
+          </div>
         </div>
       </Section>
 
-      {/* 6. Producto principal */}
+      {/* 8. Presentación del libro */}
+      <Section>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xl font-semibold">Por eso existe ENTENDER BIEN EL DINERO.</p>
+          <p className="mt-4 text-muted-foreground">
+            Una guía diseñada para ayudarte a comprender mejor qué está ocurriendo con tu dinero y
+            construir una base más clara para tomar mejores decisiones.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            No es otro curso de finanzas. No es una colección interminable de consejos. Es una guía
+            para dejar de improvisar y comenzar a entender qué hacer primero.
+          </p>
+        </div>
+      </Section>
+
+      {/* 9. Qué recibirás */}
       <Section
-        eyebrow="Producto principal"
-        title="No vas a recibir teoría para leer y olvidar. Vas a recibir una ruta para comenzar a aplicar."
+        eyebrow="Qué recibirás"
+        title="No se trata de leer más sobre dinero. Se trata de comenzar a entenderlo de una manera que puedas aplicar."
       >
         <div className="card-surface grid gap-8 p-6 md:grid-cols-2 md:p-8">
           <div>
             <ImageSlot label="[MOCKUP DEL LIBRO — SUBIR DESPUÉS]" ratio="1 / 1" />
-            <p className="mt-4 text-center eyebrow">Producto principal</p>
+            <p className="mt-4 text-center eyebrow">Entender bien el dinero</p>
           </div>
           <div>
             <h3 className="text-xl font-extrabold">Entender bien el dinero</h3>
@@ -529,31 +607,18 @@ function LandingPage() {
             </ul>
           </div>
         </div>
-      </Section>
-
-      {/* 7. Vista interna */}
-      <Section
-        eyebrow="Mira cómo es por dentro"
-        title="Antes de comprar, mira exactamente lo que vas a recibir."
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="-mt-4 mb-8 text-center text-muted-foreground">
-            Esto no está diseñado para llenarte de teoría. El objetivo es ayudarte a comprender y
-            aplicar los conceptos paso a paso.
+        <div className="mx-auto mt-8 max-w-3xl">
+          <p className="-mb-2 mt-2 text-center text-sm text-muted-foreground">
+            Antes de comprar, mira exactamente lo que vas a recibir.
           </p>
-          <ImageSlot label="[INTERIOR DEL LIBRO — SUBIR DESPUÉS]" ratio="16 / 10" />
+          <div className="mt-6">
+            <ImageSlot label="[INTERIOR DEL LIBRO — SUBIR DESPUÉS]" ratio="16 / 10" />
+          </div>
         </div>
       </Section>
 
-      {/* 8. Bonos por objeción */}
-      <Section
-        eyebrow="Barreras resueltas"
-        title="Quizás quieres tomar el control de tu dinero… pero todavía hay algunas cosas que te están frenando."
-      >
-        <p className="-mt-6 mb-10 text-center text-muted-foreground">
-          Por eso, además del libro principal, recibirás herramientas diseñadas para ayudarte a
-          superar los obstáculos más comunes antes de comenzar.
-        </p>
+      {/* 10. Bonos como conversación con las objeciones */}
+      <Section title="Y probablemente mientras lees esto estás pensando algunas cosas…">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {BONUSES.map((b) => (
             <article key={b.n} className="card-surface flex flex-col overflow-hidden">
@@ -565,7 +630,7 @@ function LandingPage() {
               <div className="flex flex-1 flex-col p-5">
                 <p className="text-sm font-semibold leading-snug text-muted-foreground">{b.o}</p>
                 <h3 className="mt-3 text-base font-bold leading-snug">
-                  Bono {b.n}: {b.t}
+                  {b.t}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{b.d}</p>
                 <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
@@ -581,11 +646,8 @@ function LandingPage() {
         </div>
         <div className="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
           <p className="text-muted-foreground">
-            El objetivo no es darte más contenido para consumir. Es ayudarte a eliminar las razones
-            que normalmente hacen que las personas nunca comiencen.
-          </p>
-          <p className="mt-3 font-display text-lg font-extrabold">
-            Menos confusión. Más claridad. Un siguiente paso a la vez.
+            No agregamos estos materiales para darte más cosas que consumir. Los agregamos para
+            ayudarte a resolver las razones que normalmente hacen que las personas nunca comiencen.
           </p>
           <a href={CHECKOUT} className="btn-cta mt-5">
             Quiero acceder a todo el sistema
@@ -593,15 +655,11 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 9. Prueba social */}
+      {/* 11. Testimonios como respuesta a objeciones */}
       <Section
-        eyebrow="Experiencias reales"
-        title="Las mismas dudas que probablemente tienes ahora… también las tuvieron personas que ya comenzaron."
+        eyebrow="Dudas parecidas a las tuyas"
+        title="Las dudas que probablemente tienes ahora también las tuvieron otras personas antes de comenzar."
       >
-        <p className="-mt-6 mb-10 text-center text-muted-foreground">
-          Estas son experiencias reales de personas que decidieron dejar de improvisar con su
-          dinero.
-        </p>
         <div className="card-surface mb-10 grid items-center gap-6 p-6 md:grid-cols-[200px_1fr] md:p-8">
           <div>
             <ImageSlot label="[FOTO DEL TESTIMONIO — SUBIR DESPUÉS]" ratio="1 / 1" />
@@ -661,20 +719,22 @@ function LandingPage() {
           ))}
         </div>
         <div className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="text-muted-foreground">
-            No necesitas tener todo resuelto antes de comenzar. La mayoría de las personas comienza
-            con dudas, información incompleta y sin saber cuál debería ser el primer paso. La
-            diferencia está en comenzar a construir claridad antes de que otro mes vuelva a pasar en
-            automático.
-          </p>
-          <a href={CHECKOUT} className="btn-cta mt-6">
+          <a href={CHECKOUT} className="btn-cta">
             Quiero comenzar ahora
           </a>
         </div>
       </Section>
 
-      {/* 10. Oferta */}
-      <Section id="cb-precio" title="Todo lo que necesitas para comenzar a tomar el control de tu dinero.">
+      {/* 12. Oferta */}
+      <Section id="cb-precio" title="Todo lo que necesitas para comenzar a entender mejor tu dinero.">
+        <div className="mx-auto mb-8 max-w-xl text-center">
+          <p className="text-muted-foreground">
+            La pregunta no es cuánto cuesta seguir sin saber qué hacer con tu dinero.
+          </p>
+          <p className="mt-1 text-lg font-semibold">
+            La pregunta es cuánto tiempo más quieres seguir improvisando.
+          </p>
+        </div>
         <div className="card-surface mx-auto max-w-2xl overflow-hidden">
           <div className="bg-[color:var(--primary)] py-2 text-center font-display text-xs font-extrabold uppercase tracking-[0.16em] text-primary-foreground">
             Oferta por tiempo limitado
@@ -688,7 +748,7 @@ function LandingPage() {
                 <span>
                   <strong>Entender bien el dinero</strong>
                   <span className="block text-xs text-muted-foreground">
-                    La ruta completa para organizar tu dinero desde cero.
+                    La ruta completa para dejar de improvisar con tu dinero.
                   </span>
                 </span>
                 <span className="shrink-0 font-semibold">{PRICING.bookValue}</span>
@@ -739,19 +799,7 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 11. Microsección de objeciones */}
-      <Section title="Quizás todavía estás pensando…">
-        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-3">
-          {MICRO_OBJECTIONS.map((o) => (
-            <article key={o.q} className="card-surface p-6">
-              <h3 className="text-base font-bold">{o.q}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{o.a}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* 12. Cómo se recibe */}
+      {/* Cómo se recibe */}
       <Section eyebrow="Simple y rápido" title="Comenzar te lleva menos tiempo del que imaginas.">
         <div className="grid gap-5 md:grid-cols-3">
           {[
@@ -774,8 +822,8 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 13. Garantía */}
-      <Section title="Pruébalo sin sentir que estás asumiendo todo el riesgo.">
+      {/* 13. Reducción de riesgo */}
+      <Section title="No tienes que decidirlo todo sin ver primero el material.">
         <div className="card-surface mx-auto grid max-w-3xl items-center gap-6 p-8 md:grid-cols-[200px_1fr]">
           <div className="mx-auto w-44">
             <ImageSlot
@@ -803,7 +851,7 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 14. FAQ */}
+      {/* FAQ */}
       <Section title="Preguntas frecuentes">
         <div className="mx-auto max-w-3xl space-y-3">
           {FAQS.map((f) => (
@@ -828,21 +876,30 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 15. CTA final */}
+      {/* 14. Future pacing */}
       <Section title="Dentro de unos meses seguirás tomando decisiones con tu dinero.">
         <div className="mx-auto max-w-3xl text-center">
           <p className="mt-4 text-xl font-semibold">
-            La pregunta es si seguirás tomándolas desde la improvisación… o desde la claridad.
+            La única pregunta es si seguirás improvisándolas.
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-muted-foreground">
-            No necesitas resolver toda tu vida financiera hoy. Solo necesitas dejar de postergar el
-            primer paso.
+            Puedes seguir esperando a ganar más. Puedes seguir guardando consejos que algún día
+            aplicarás. Puedes seguir prometiéndote que el próximo mes será diferente.
           </p>
-          <a href={CHECKOUT} className="btn-cta mt-8">
-            Quiero tomar el control de mi dinero
+          <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold">
+            O puedes comenzar a entender qué está pasando ahora.
+          </p>
+        </div>
+      </Section>
+
+      {/* 15. CTA final */}
+      <Section>
+        <div className="mx-auto max-w-3xl text-center">
+          <a href={CHECKOUT} className="btn-cta">
+            Quiero empezar a entender bien mi dinero
           </a>
           <p className="mt-3 text-xs text-muted-foreground">
-            Acceso inmediato · Pago único · 7 días de garantía
+            Acceso inmediato · Pago único · Material digital · 7 días de garantía
           </p>
         </div>
       </Section>
