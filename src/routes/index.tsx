@@ -197,12 +197,16 @@ const FAQS = [
     a: "Primero revisá Spam, Promociones y No deseado: el 90% de las veces está ahí. Si no aparece, escribinos con el mail y el nombre con el que compraste y te lo reenviamos el mismo día.",
   },
   {
-    q: "¿Cuánto tiempo por día necesito?",
-    a: "Quince minutos alcanzan. Los capítulos son cortos y cada uno cierra con un número para calcular o algo concreto para hacer ese día.",
+    q: "¿Y si gano poco?",
+    a: "El objetivo no es que empieces con grandes cantidades. Es que entiendas qué podés hacer con lo que ya tenés y cómo empezar a construir una estructura desde ahí.",
   },
   {
-    q: "Gano poco. ¿Igual me sirve?",
-    a: "Es justamente para eso. Todo el libro está armado alrededor de la idea de empezar con montos chicos: US$100 o su equivalente en pesos.",
+    q: "¿Y si nunca invertí?",
+    a: "El material está pensado para personas que quieren entender desde la base, sin asumir conocimientos previos.",
+  },
+  {
+    q: "¿Y si no tengo mucho tiempo?",
+    a: "No necesitás convertir las finanzas en tu trabajo. Necesitás aprender un sistema que puedas entender y aplicar de forma progresiva. Los capítulos son cortos y cada uno cierra con algo concreto para hacer.",
   },
 ];
 
