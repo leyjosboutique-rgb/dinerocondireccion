@@ -29,7 +29,12 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT = "#cb-precio";
 
-/** Precio editable: cambia moneda, monto y formato desde aquí. */
+/**
+ * Precio editable: cambia moneda, monto y formato desde aquí.
+ * NOTA: hoy está configurado en ARS (Argentina). Si vas a vender a toda
+ * Latinoamérica, considera dejarlo en USD o duplicar esta configuración
+ * por país/mercado antes de lanzar tráfico frío regional.
+ */
 const PRICING = {
   currency: "ARS",
   price: "$19.999",
@@ -166,7 +171,20 @@ const BONUSES = [
   },
 ];
 
-/** Testimonios reales, agrupados por la objeción que ayudan a responder. */
+/**
+ * Testimonios reales, agrupados por la objeción que ayudan a responder.
+ * IMPORTANTE: el contenido y el sentido de cada cita se mantuvo intacto
+ * (no se inventó ni modificó ninguna experiencia). Solo se cambiaron 3
+ * palabras de jerga exclusivamente argentina por su equivalente neutro,
+ * para que el mensaje se entienda igual en cualquier país de LATAM:
+ *  - "termotanque" → "calentador de agua"
+ *  - "una boludez" → "algo simple"
+ *  - "laburando" → "trabajando"
+ * Los nombres y las ciudades de los compradores NO se tocaron por ser
+ * datos reales de personas reales. Si estas ciudades (todas de Argentina)
+ * no representan a tu comprador actual en el resto de LATAM, dímelo y
+ * revisamos si conviene priorizar otros testimonios reales que tengas.
+ */
 const REVIEW_GROUPS = [
   {
     objection: "“Pensaba que necesitaba ganar más para comenzar.”",
@@ -177,7 +195,7 @@ const REVIEW_GROUPS = [
         c: "Buenos Aires",
       },
       {
-        q: "Se me rompió el termotanque en junio y por primera vez lo pagué sin tarjeta. La reserva ya estaba armada. Eso solo vale lo que salió el libro.",
+        q: "Se me rompió el calentador de agua en junio y por primera vez lo pagué sin tarjeta. La reserva ya estaba armada. Eso solo vale lo que salió el libro.",
         n: "Fabián L.",
         c: "La Plata",
       },
@@ -197,12 +215,12 @@ const REVIEW_GROUPS = [
     objection: "“Sabía que debía organizarme, pero nunca lograba hacerlo.”",
     items: [
       {
-        q: "Lo que más me sirvió fue lo de las tres cuentas. Cobro y reparto el mismo día. Es una boludez y me cambió el mes entero.",
+        q: "Lo que más me sirvió fue lo de las tres cuentas. Cobro y reparto el mismo día. Es algo simple y me cambió el mes entero.",
         n: "Hernán V.",
         c: "Mendoza",
       },
       {
-        q: "Estuve a punto de vender la camioneta con la que trabajo para cubrir un mes malo. Leí el capítulo de deudas y no lo hice. Hoy sigo laburando con ella.",
+        q: "Estuve a punto de vender la camioneta con la que trabajo para cubrir un mes malo. Leí el capítulo de deudas y no lo hice. Hoy sigo trabajando con ella.",
         n: "Damián S.",
         c: "Córdoba",
       },
@@ -329,7 +347,6 @@ function Section({
 
 function LandingPage() {
   const timer = useCountdown(14 * 60 + 59);
-
   return (
     <main className="min-h-screen pb-24">
       {/* Barra superior */}
@@ -349,17 +366,14 @@ function LandingPage() {
             ¿Sientes que trabajas, ganas dinero… y aun así nunca sabes exactamente{" "}
             <span className="text-accent">a dónde se fue</span>?
           </h1>
-
           <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg font-semibold sm:text-xl">
             Aprende a organizar tu dinero, dejar de llegar justo a fin de mes, crear una reserva y
             comenzar a entender cómo invertir, incluso si hoy no tienes grandes ingresos.
           </p>
-
           <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
             No necesitas ganar más para empezar a tener control. Primero necesitas saber qué hacer
             con el dinero que ya ganas.
           </p>
-
           <div className="mt-8 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
             <div className="marquee-track gap-3">
               {[...CHIPS, ...CHIPS].map((c, i) => (
@@ -372,7 +386,6 @@ function LandingPage() {
               ))}
             </div>
           </div>
-
           <div className="mx-auto mt-10 max-w-md">
             <ImageSlot
               label="[VIDEO O IMAGEN PRINCIPAL DEL PRODUCTO — SUBIR DESPUÉS]"
@@ -380,11 +393,9 @@ function LandingPage() {
             />
             <p className="mt-4 eyebrow">Guía práctica para organizar tu dinero desde cero</p>
           </div>
-
           <p className="mt-6 text-sm text-muted-foreground">
             Valoración: <Stars /> 4.9 · 7.480 lectores
           </p>
-
           <a href={CHECKOUT} className="btn-cta mt-8">
             Quiero tomar el control de mi dinero
           </a>
@@ -392,7 +403,6 @@ function LandingPage() {
             Acceso inmediato · Pago único · Material digital
           </p>
         </div>
-
         {/* Prensa */}
         <div className="mx-auto mt-14 max-w-4xl border-t border-border/60 pt-8 text-center">
           <p className="eyebrow">Este libro fue visto en</p>
@@ -598,7 +608,6 @@ function LandingPage() {
           Estas son experiencias reales de personas que decidieron dejar de improvisar con su
           dinero.
         </p>
-
         <div className="card-surface mb-10 grid items-center gap-6 p-6 md:grid-cols-[200px_1fr] md:p-8">
           <div>
             <ImageSlot label="[FOTO DEL TESTIMONIO — SUBIR DESPUÉS]" ratio="1 / 1" />
@@ -623,7 +632,6 @@ function LandingPage() {
             </div>
           </div>
         </div>
-
         <div className="space-y-8">
           {REVIEW_GROUPS.map((g) => (
             <div key={g.objection}>
@@ -654,7 +662,6 @@ function LandingPage() {
             </div>
           ))}
         </div>
-
         <div className="mx-auto mt-10 max-w-2xl text-center">
           <p className="text-muted-foreground">
             No necesitas tener todo resuelto antes de comenzar. La mayoría de las personas comienza
@@ -678,7 +685,6 @@ function LandingPage() {
             <div className="mx-auto max-w-sm">
               <ImageSlot label="[MOCKUP FINAL DEL PRODUCTO + BONOS — SUBIR DESPUÉS]" ratio="4 / 3" />
             </div>
-
             <ul className="mt-7 divide-y divide-border text-sm">
               <li className="flex items-start justify-between gap-4 py-3">
                 <span>
@@ -708,7 +714,6 @@ function LandingPage() {
                 <span className="font-semibold text-accent">INCLUIDA</span>
               </li>
             </ul>
-
             <div className="mt-7 text-center">
               <p className="text-sm text-muted-foreground">
                 Valor total <s>{PRICING.totalValue}</s>
@@ -812,7 +817,6 @@ function LandingPage() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
             </details>
           ))}
-
           <p className="pt-6 text-center eyebrow">Preguntas adicionales</p>
           {EXTRA_FAQS.map((f) => (
             <details key={f.q} className="card-surface group p-5">
