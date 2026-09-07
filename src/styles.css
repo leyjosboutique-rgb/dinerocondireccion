@@ -157,7 +157,7 @@
 /* Forzado explícito (con !important) para que las imágenes/botones de
    sección completa ocupen TODO el ancho de la pantalla en celular, sin
    depender del orden en que Tailwind genera las clases responsive. */
-@media (max-width: 639px) {
+@media (max-width: 1024px) {
   .bleed-mobile {
     margin-left: -1.25rem !important;
     margin-right: -1.25rem !important;
