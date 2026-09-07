@@ -404,19 +404,23 @@ function Section({
   children,
   id,
   tone = "dark",
+  compact = false,
 }: {
   eyebrow?: string;
   title?: React.ReactNode;
   children: React.ReactNode;
   id?: string;
   tone?: "dark" | "light" | "green";
+  compact?: boolean;
 }) {
   const toneStyle = tone === "light" ? LIGHT_TONE_VARS : tone === "green" ? GREEN_TONE_VARS : undefined;
   return (
     <section
       id={id}
       style={toneStyle}
-      className="border-t border-border/60 bg-background px-5 py-16 text-foreground sm:py-20"
+      className={`border-t border-border/60 bg-background px-5 text-foreground ${
+        compact ? "py-8 sm:py-10" : "py-16 sm:py-20"
+      }`}
     >
       <div className="mx-auto max-w-5xl">
         {(eyebrow || title) && (
@@ -538,7 +542,7 @@ function LandingPage() {
       </div>
 
       {/* 2. Identificación inmediata */}
-      <Section tone="light">
+      <Section tone="light" compact>
         <div className="-mx-5 sm:mx-auto sm:max-w-lg">
           <img
             src="/identificacion-situaciones.webp"
@@ -550,7 +554,7 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="-mx-5 mt-6 px-5 text-center sm:mx-0 sm:mt-8 sm:px-0">
+        <div className="-mx-5 mt-4 px-5 text-center sm:mx-0 sm:mt-8 sm:px-0">
           <a href={CHECKOUT} className="btn-cta w-full sm:w-auto">
             Sí. Esto es exactamente lo que me pasa
           </a>
