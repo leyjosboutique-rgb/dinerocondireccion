@@ -120,6 +120,43 @@
     transform: translateY(-2px);
     filter: brightness(1.06);
   }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@keyframes cta-pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 10px 30px -6px oklch(0.72 0.18 155 / 0.45),
+      0 0 0 0 oklch(0.76 0.19 155 / 0.55);
+  }
+  50% {
+    box-shadow:
+      0 10px 30px -6px oklch(0.72 0.18 155 / 0.45),
+      0 0 0 10px oklch(0.76 0.19 155 / 0);
+  }
+}
+
+@utility cta-pulse {
+  animation: cta-pulse-glow 2s ease-out infinite;
+}
+
+@keyframes cta-arrow-bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+@utility cta-arrow {
+  display: inline-block;
+  animation: cta-arrow-bounce 1.1s ease-in-out infinite;
 }
 
 @utility card-surface {
