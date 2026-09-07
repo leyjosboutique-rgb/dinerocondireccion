@@ -652,7 +652,7 @@ function LandingPage() {
       </Section>
 
       {/* 5b. Contraste — mismo lugar */}
-      <Section compact>
+      <Section tone="light" compact>
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">
             <span className="text-accent">Trabaja más, gana más</span> y aun así te sientes en el
