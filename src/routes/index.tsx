@@ -539,7 +539,7 @@ function LandingPage() {
 
       {/* 2. Identificación inmediata */}
       <Section tone="light">
-        <div className="mx-auto max-w-md sm:max-w-lg">
+        <div className="-mx-5 sm:mx-auto sm:max-w-lg">
           <img
             src="/identificacion-situaciones.webp"
             alt="Dime si alguna de estas te resulta demasiado familiar: cobras y a los pocos días no sabes a dónde se fue el dinero, cada gasto parece pequeño hasta que ves lo que te quedó, quieres invertir pero sientes que necesitas saber demasiado antes de empezar, y cualquier imprevisto te desordena todo. Necesitas entender qué está pasando con tu dinero y empezar a tomar mejores decisiones con él."
@@ -547,76 +547,13 @@ function LandingPage() {
             height={1536}
             loading="lazy"
             decoding="async"
-            className="h-auto w-full rounded-2xl"
+            className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="mt-8 text-center">
-          <a href={CHECKOUT} className="btn-cta">
+        <div className="-mx-5 mt-6 px-5 text-center sm:mx-0 sm:mt-8 sm:px-0">
+          <a href={CHECKOUT} className="btn-cta w-full sm:w-auto">
             Sí. Esto es exactamente lo que me pasa
           </a>
-        </div>
-      </Section>
-
-      {/* 4. El problema invisible */}
-      <Section tone="green" title="El problema puede empezar antes de que aparezca el gasto.">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-muted-foreground">
-            Muchas decisiones financieras parecen inevitables en el momento en que ocurren. Pero
-            se vuelven difíciles porque terminas decidiendo recién después de que el dinero ya
-            llegó y las necesidades ya aparecieron.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="card-surface p-5">
-              <p className="eyebrow">Decidir desde la reacción</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                "Ya apareció esto. ¿Qué hago ahora?"
-              </p>
-            </div>
-            <div className="card-surface p-5">
-              <p className="eyebrow">Decidir con más claridad</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                "Antes de que aparezca algo nuevo, ya sé qué necesito mirar."
-              </p>
-            </div>
-          </div>
-          <p className="mt-6 text-lg font-semibold">
-            Esperar a que todo ocurra para recién entonces decidir te obliga a reaccionar todo el
-            tiempo.
-          </p>
-        </div>
-      </Section>
-
-      {/* 5. El costo de seguir igual */}
-      <Section tone="light" title="Lo agotador no siempre es el dinero que falta. Es tener que reorganizarlo todo una y otra vez.">
-        <ul className="mx-auto max-w-2xl space-y-4">
-          {[
-            "Cada imprevisto parece destruir el avance que habías logrado.",
-            "Cada mes vuelve a sentirse como si empezaras desde cero.",
-            "El dinero que guardas nunca termina de sentirse protegido.",
-            "Las decisiones importantes se posponen una y otra vez.",
-            "Sigues intentando hacer más, sin tener claro qué deberías cambiar primero.",
-          ].map((c, i) => (
-            <li key={c} className="card-surface flex gap-4 p-5">
-              <span className="font-display text-lg font-black text-accent/50">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-sm leading-relaxed text-muted-foreground">{c}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="mx-auto mt-8 max-w-xl text-center text-lg font-semibold">
-          No quiero seguir resolviendo los mismos problemas una y otra vez.
-        </p>
-        <div className="mx-auto mt-10 max-w-sm sm:max-w-md">
-          <img
-            src="/metodo-orden-3-pasos.webp"
-            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full rounded-2xl object-contain"
-          />
         </div>
       </Section>
 
