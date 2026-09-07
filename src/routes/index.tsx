@@ -385,8 +385,9 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            El dinero no desaparece. Cambia de lugar. Cuando aprendes a ver hacia dónde se
-            mueve, puedes empezar a decidir qué conservar, qué proteger y qué hacer crecer.
+            <span className="text-accent">El dinero no desaparece. Cambia de lugar.</span>{" "}
+            Cuando aprendes a ver hacia dónde se mueve, puedes empezar a decidir qué conservar,
+            qué proteger y qué hacer crecer.
           </p>
 
           {/* 7. CTA */}
