@@ -362,12 +362,12 @@ function LandingPage() {
           {/* 4. Imagen central de transformación */}
           <div className="mx-auto mt-10 max-w-md">
             <img
-              src="/hero-fire-hombre-820.webp"
+              src="/hero-fire-hombre-completa-860.webp"
               alt="Hombre preocupado revisando sus finanzas de noche mientras facturas y deudas arden en un balde sobre su escritorio"
-              width={820}
-              height={820}
+              width={860}
+              height={573}
               fetchPriority="high"
-              className="w-full rounded-2xl"
+              className="h-auto w-full rounded-2xl"
             />
           </div>
 
