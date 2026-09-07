@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "De \"no sé a dónde se me fue\" a \"sé exactamente qué hacer con mi dinero\".",
+          "¿Sientes que con tu dinero siempre estás apagando incendios? Aprende a detectar la fuga, construir una reserva y invertir desde US$100.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -349,8 +349,8 @@ function LandingPage() {
 
           {/* 2. Titular principal — elemento dominante */}
           <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
-            Entiende por qué, aunque trabajes y ganes dinero,{" "}
-            <span className="text-accent">terminas llegando justo a fin de mes</span>.
+            ¿Sientes que con tu dinero siempre estás{" "}
+            <span className="text-accent">apagando incendios</span>?
           </h1>
 
           {/* 3. Subtítulo de pacing */}
@@ -363,32 +363,13 @@ function LandingPage() {
           {/* 4. Imagen central de transformación */}
           <div className="mx-auto mt-10 max-w-md">
             <img
-              src="/hero-fire-hombre-completa-860.webp"
-              alt="Hombre revisando sus cuentas y facturas, tratando de entender en qué se le fue el dinero este mes"
-              width={860}
-              height={573}
+              src="/hero-fire-hombre-820.webp"
+              alt="Hombre angustiado de noche frente a una olla en llamas con facturas, deudas y pagos vencidos ardiendo"
+              width={820}
+              height={820}
               fetchPriority="high"
               className="h-auto w-full rounded-2xl"
             />
-          </div>
-
-          {/* 4b. Contraste "de / a" */}
-          <div className="mx-auto mt-8 grid max-w-md grid-cols-1 gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-            <div className="card-surface p-4">
-              <p className="eyebrow">De</p>
-              <p className="mt-1 font-display text-sm font-bold leading-snug">
-                "No sé a dónde se me fue"
-              </p>
-            </div>
-            <span className="mx-auto rotate-90 text-lg text-muted-foreground/50 sm:rotate-0" aria-hidden="true">
-              →
-            </span>
-            <div className="card-surface p-4 border-accent/40">
-              <p className="eyebrow text-accent">A</p>
-              <p className="mt-1 font-display text-sm font-bold leading-snug">
-                "Sé exactamente qué hacer con mi dinero"
-              </p>
-            </div>
           </div>
 
           {/* 5. Progresión de 3 pasos */}
