@@ -608,8 +608,8 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="bleed-mobile mt-0 text-center sm:mx-0 sm:mt-8">
-          <a href={CHECKOUT} className="btn-cta cta-pulse full-mobile sm:w-auto sm:rounded-full">
+        <div className="bleed-mobile mt-0 bg-[oklch(0.16_0.03_160)] px-6 py-8 text-center sm:mx-0 sm:mt-8 sm:bg-transparent sm:px-0 sm:py-0">
+          <a href={CHECKOUT} className="btn-cta-gold cta-pulse-gold">
             Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
         </div>
