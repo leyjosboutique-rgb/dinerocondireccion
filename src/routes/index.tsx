@@ -541,9 +541,9 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            <span className="text-accent">El dinero no desaparece. Cambia de lugar.</span>{" "}
-            Cuando aprendes a ver hacia dónde se mueve, puedes empezar a decidir qué conservar,
-            qué proteger y qué hacer crecer.
+            <span className="text-accent">El dinero no desaparece. Solo cambia de lugar.</span>{" "}
+            Y hasta que no sepas a dónde va el tuyo, va a seguir cambiándose al lugar de otro.
+            Aprende a retenerlo primero y a hacerlo crecer después.
           </p>
 
           {/* 7. CTA */}
@@ -631,7 +631,11 @@ function LandingPage() {
       </Section>
 
       {/* 7. El nuevo mecanismo */}
-      <Section tone="light" title="No necesitas hacer todo de golpe. Solo empezar en el orden correcto.">
+      <Section
+        tone="light"
+        title="No necesitas hacer todo de golpe. Solo empezar en el orden correcto."
+        compact
+      >
         <p className="mx-auto -mt-4 mb-8 max-w-2xl text-center text-muted-foreground">
           La mayoría intenta invertir antes de ordenar su dinero. Y por eso se frustra. Aquí vas a
           seguir un camino simple:
@@ -653,7 +657,7 @@ function LandingPage() {
             Menos ansiedad. Más claridad. Mejores decisiones.
           </p>
         </div>
-        <div className="-mx-5 mt-10 sm:mx-auto sm:max-w-md">
+        <div className="-mx-5 mt-6 sm:mx-auto sm:max-w-md">
           <img
             src="/metodo-orden-3-pasos.webp"
             alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
