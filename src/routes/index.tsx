@@ -508,15 +508,8 @@ function LandingPage() {
       {/* 1. HERO */}
       <header className="hero-glow px-5 pb-16 pt-4 sm:pt-16">
         <div className="mx-auto max-w-4xl text-center">
-          {/* 2. Titular principal — elemento dominante */}
-          <h1 className="mx-auto mt-2 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:mt-4 sm:text-5xl">
-            Entiende hacia dónde se mueve tu dinero, aprende a poner{" "}
-            <span className="text-accent">una parte a salvo</span> y descubre cómo empezar a
-            hacerlo crecer desde US$100.
-          </h1>
-
           {/* 2b. Barra de tags de contenido — cinta corrida infinita */}
-          <div className="mx-auto mt-6 max-w-xl overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+          <div className="mx-auto max-w-xl overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
             <div className="marquee-track gap-2">
               {[...TAGS, ...TAGS].map((tag, i) => (
                 <span
@@ -528,6 +521,13 @@ function LandingPage() {
               ))}
             </div>
           </div>
+
+          {/* 2. Titular principal — elemento dominante */}
+          <h1 className="mx-auto mt-6 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:mt-8 sm:text-5xl">
+            Entiende hacia dónde se mueve tu dinero, aprende a poner{" "}
+            <span className="text-accent">una parte a salvo</span> y descubre cómo empezar a
+            hacerlo crecer desde US$100.
+          </h1>
 
           {/* 3. Imagen central de transformación */}
           <div className="mx-auto mt-8 max-w-xl">
@@ -549,11 +549,6 @@ function LandingPage() {
             Y hasta que no sepas a dónde va el tuyo, va a seguir cambiándose al lugar de otro.
             Aprende a retenerlo primero y a hacerlo crecer después.
           </p>
-
-          {/* 7. CTA */}
-          <a href={CHECKOUT} className="btn-cta mt-8">
-            Quiero tomar el control de mi dinero
-          </a>
 
           {/* 9. Prueba social */}
           <p className="mt-6 text-sm text-muted-foreground">
@@ -590,7 +585,7 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="bleed-mobile bg-background px-6 py-3 text-center sm:mx-0 sm:mt-8 sm:px-0 sm:py-4">
+        <div className="bleed-mobile bg-background px-6 py-0 text-center sm:mx-0 sm:px-0 sm:py-0">
           <a href={CHECKOUT} className="btn-cta-gold cta-pulse-gold">
             Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
