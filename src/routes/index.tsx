@@ -608,20 +608,64 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 6. Reframe / nueva creencia */}
-      <Section tone="green" title="No siempre gana más el que termina con más.">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-muted-foreground">
-            Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que
-            ganan bien y siguen llegando justas. Y hay personas que, ganando menos, construyen
-            ahorro, tranquilidad y patrimonio.
+      {/* 9. Cómo se nota la diferencia en 60 días */}
+      <Section eyebrow="Lo que vas a empezar a notar">
+        <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
+          <h2 className="text-balance text-3xl font-extrabold sm:text-4xl">
+            Cómo se te va a notar en los <span className="text-accent">próximos 60 días</span>
+          </h2>
+          <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+            Menos estrés. Más control. Un futuro más tranquilo.
           </p>
         </div>
-        <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-accent/30 bg-accent/5 p-8 text-center">
-          <p className="font-display text-xl font-extrabold uppercase leading-snug sm:text-2xl">
-            La diferencia no siempre está en cuánto entra. Está en lo que haces después de que
-            entra.
+
+        <ul className="mx-auto max-w-2xl space-y-4">
+          {SIXTY_DAY_CHANGES.map((c, i) => (
+            <li key={c.title} className="card-surface flex items-center gap-5 p-5">
+              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-background/60 text-[color:var(--gold)]">
+                {c.icon}
+                <span className="absolute -left-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-black text-accent-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </span>
+              <div className="border-l border-border/60 pl-4">
+                <p className="font-display text-base font-extrabold leading-tight sm:text-lg">
+                  {c.title} <span className="text-accent">{c.highlight}</span>
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mx-auto mt-10 max-w-xl border-t border-border/60 pt-8 text-center">
+          <p className="text-sm font-semibold text-muted-foreground">
+            El cambio no empieza cuando ganas más.
           </p>
+          <p className="mt-1 text-lg font-extrabold text-accent sm:text-xl">
+            Empieza cuando entiendes qué hacer con lo que ya llega a tus manos.
+          </p>
+        </div>
+
+        <div className="mt-8 text-center">
+          <a href={CHECKOUT} className="btn-cta">
+            Quiero empezar hoy
+          </a>
+        </div>
+      </Section>
+
+      {/* 6. Reframe / nueva creencia */}
+      <Section tone="green" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/reframe-no-siempre-gana-mas.webp"
+            alt="No siempre gana más el que termina con más. Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que ganan bien y siguen llegando justas. Y hay personas que, ganando menos, construyen ahorro, tranquilidad y patrimonio. La diferencia no siempre está en cuánto entra. Está en lo que haces después de que entra."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
@@ -672,52 +716,6 @@ function LandingPage() {
           <p className="mt-6 text-center text-lg font-semibold">
             Quizás no necesitas hacer todo. Necesitas saber qué tiene sentido hacer ahora.
           </p>
-        </div>
-      </Section>
-
-      {/* 9. Cómo se nota la diferencia en 60 días */}
-      <Section eyebrow="Lo que vas a empezar a notar">
-        <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-extrabold sm:text-4xl">
-            Cómo se te va a notar en los <span className="text-accent">próximos 60 días</span>
-          </h2>
-          <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-            Menos estrés. Más control. Un futuro más tranquilo.
-          </p>
-        </div>
-
-        <ul className="mx-auto max-w-2xl space-y-4">
-          {SIXTY_DAY_CHANGES.map((c, i) => (
-            <li key={c.title} className="card-surface flex items-center gap-5 p-5">
-              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-background/60 text-[color:var(--gold)]">
-                {c.icon}
-                <span className="absolute -left-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-black text-accent-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </span>
-              <div className="border-l border-border/60 pl-4">
-                <p className="font-display text-base font-extrabold leading-tight sm:text-lg">
-                  {c.title} <span className="text-accent">{c.highlight}</span>
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mx-auto mt-10 max-w-xl border-t border-border/60 pt-8 text-center">
-          <p className="text-sm font-semibold text-muted-foreground">
-            El cambio no empieza cuando ganas más.
-          </p>
-          <p className="mt-1 text-lg font-extrabold text-accent sm:text-xl">
-            Empieza cuando entiendes qué hacer con lo que ya llega a tus manos.
-          </p>
-        </div>
-
-        <div className="mt-8 text-center">
-          <a href={CHECKOUT} className="btn-cta">
-            Quiero empezar hoy
-          </a>
         </div>
       </Section>
 
