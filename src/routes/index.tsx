@@ -404,17 +404,17 @@ function PurchaseToast() {
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >
-      <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface-strong/95 p-3 shadow-card backdrop-blur">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent">
+      <div className="flex items-center gap-3 rounded-2xl border border-black/10 bg-white p-3 shadow-card">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">
           {n.name[0]}
         </span>
         <div className="min-w-0">
-          <p className="truncate text-xs font-bold">
+          <p className="truncate text-xs font-bold text-slate-900">
             {n.name} de {n.city}
           </p>
-          <p className="truncate text-[11px] text-muted-foreground">Compró {n.item}</p>
-          <p className="text-[10px] text-muted-foreground">
-            hace {n.mins} min · <span className="text-accent">✓ Verificado</span>
+          <p className="truncate text-[11px] text-slate-500">Compró {n.item}</p>
+          <p className="text-[10px] text-slate-500">
+            hace {n.mins} min · <span className="text-emerald-600">✓ Verificado</span>
           </p>
         </div>
       </div>
@@ -652,6 +652,17 @@ function LandingPage() {
           <p className="mt-1 text-lg font-semibold">
             Menos ansiedad. Más claridad. Mejores decisiones.
           </p>
+        </div>
+        <div className="-mx-5 mt-10 sm:mx-auto sm:max-w-md">
+          <img
+            src="/metodo-orden-3-pasos.webp"
+            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
