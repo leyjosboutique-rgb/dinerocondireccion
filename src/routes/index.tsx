@@ -374,10 +374,10 @@ function LandingPage() {
           {/* 3. Imagen central de transformación */}
           <div className="mx-auto mt-8 max-w-xl">
             <img
-              src="/hero-fire-hombre-completa.webp"
-              alt="Hombre angustiado de noche frente a una olla en llamas con facturas, deudas y pagos vencidos ardiendo"
-              width={1536}
-              height={1024}
+              src="/hero-agujero-hombre-completa.webp"
+              alt="Hombre mirando su teléfono mientras el dinero, tickets y compras cotidianas son absorbidos por un agujero negro"
+              width={1672}
+              height={941}
               fetchPriority="high"
               className="h-auto w-full rounded-2xl"
             />
