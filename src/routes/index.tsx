@@ -506,10 +506,10 @@ function LandingPage() {
       </div>
 
       {/* 1. HERO */}
-      <header className="hero-glow px-5 pb-16 pt-12 sm:pt-16">
+      <header className="hero-glow px-5 pb-16 pt-4 sm:pt-16">
         <div className="mx-auto max-w-4xl text-center">
           {/* 2. Titular principal — elemento dominante */}
-          <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
+          <h1 className="mx-auto mt-2 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:mt-4 sm:text-5xl">
             Entiende hacia dónde se mueve tu dinero, aprende a poner{" "}
             <span className="text-accent">una parte a salvo</span> y descubre cómo empezar a
             hacerlo crecer desde US$100.
@@ -567,33 +567,19 @@ function LandingPage() {
         {/* 10. Logos / autoridad */}
         <div className="mx-auto mt-10 max-w-4xl border-t border-border/60 pt-8 text-center">
           <p className="eyebrow">Este libro fue visto en</p>
-          <div className="mt-5 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
-            <div className="marquee-track gap-4">
-              {[1, 2, 3, 4, 1, 2, 3, 4].map((l, i) => (
-                <div key={i} className="w-36 shrink-0 sm:w-44">
-                  <ImageSlot label={`[LOGO MEDIO ${l} — SUBIR DESPUÉS]`} ratio="16 / 6" />
-                </div>
-              ))}
-            </div>
+          <div className="mx-auto mt-5 max-w-2xl">
+            <img
+              src="/medios-franja-logos.webp"
+              alt="Este libro fue visto en varios medios de comunicación"
+              width={1200}
+              height={200}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
           </div>
         </div>
       </header>
-
-      {/* 11. Franja inferior de 3 reductores de fricción */}
-      <div className="bg-surface-strong/70 px-5 py-8">
-        <div className="mx-auto grid max-w-3xl grid-cols-3 gap-4 text-center">
-          {[
-            ["$13 USD", "Sin barreras para empezar"],
-            ["A tu ritmo", "Sin tener que entenderlo todo de una vez"],
-            ["Pago único", "Sin suscripciones"],
-          ].map(([a, b]) => (
-            <div key={a}>
-              <p className="font-display text-lg font-extrabold text-accent sm:text-xl">{a}</p>
-              <p className="text-xs text-muted-foreground">{b}</p>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* 2. Identificación inmediata */}
       <Section tone="light" flush>
@@ -608,10 +594,21 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="bleed-mobile mt-0 bg-[oklch(0.16_0.03_160)] px-6 py-8 text-center sm:mx-0 sm:mt-8 sm:bg-transparent sm:px-0 sm:py-0">
+        <div className="bleed-mobile mt-0 bg-background px-6 py-8 text-center sm:mx-0 sm:mt-8 sm:px-0 sm:py-0">
           <a href={CHECKOUT} className="btn-cta-gold cta-pulse-gold">
             Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
+        </div>
+        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-md">
+          <img
+            src="/metodo-orden-3-pasos.webp"
+            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
@@ -658,17 +655,6 @@ function LandingPage() {
           <p className="mt-1 text-lg font-semibold">
             Menos ansiedad. Más claridad. Mejores decisiones.
           </p>
-        </div>
-        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-md">
-          <img
-            src="/metodo-orden-3-pasos.webp"
-            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full sm:rounded-2xl"
-          />
         </div>
       </Section>
 
