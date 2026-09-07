@@ -566,7 +566,6 @@ function LandingPage() {
 
         {/* 10. Logos / autoridad */}
         <div className="mx-auto mt-10 max-w-4xl border-t border-border/60 pt-8 text-center">
-          <p className="eyebrow">Este libro fue visto en</p>
           <div className="mx-auto mt-5 max-w-2xl">
             <img
               src="/medios-franja-logos.webp"
