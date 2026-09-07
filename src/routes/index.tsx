@@ -29,6 +29,18 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT = "#cb-precio";
 
+/** Tags de contenido — cinta corrida debajo del titular del hero. */
+const TAGS = [
+  "🎯 Empezá con US$100",
+  "📉 Dónde se te va la plata",
+  "🛟 Tu reserva de emergencia",
+  "📈 Mentalidad de inversor",
+  "📊 Fondos, ETF y rebalanceo",
+  "🎚️ Control de riesgo",
+  "⏱️ 15 minutos por día",
+  "⚡ Acceso inmediato y de por vida",
+];
+
 /** Precio real y editable: cambia moneda, monto y formato desde aquí. */
 const PRICING = {
   currency: "USD",
@@ -345,21 +357,12 @@ function LandingPage() {
             para hacerlo crecer desde US$100.
           </h1>
 
-          {/* 2b. Barra de tags de contenido */}
-          <div className="mx-auto mt-6 max-w-xl overflow-x-auto">
-            <div className="flex w-max gap-2 px-1 sm:mx-auto sm:w-auto sm:flex-wrap sm:justify-center">
-              {[
-                "🎯 Empezá con US$100",
-                "📉 Dónde se te va la plata",
-                "🛟 Tu reserva de emergencia",
-                "📈 Mentalidad de inversor",
-                "📊 Fondos, ETF y rebalanceo",
-                "🎚️ Control de riesgo",
-                "⏱️ 15 minutos por día",
-                "⚡ Acceso inmediato y de por vida",
-              ].map((tag) => (
+          {/* 2b. Barra de tags de contenido — cinta corrida infinita */}
+          <div className="mx-auto mt-6 max-w-xl overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+            <div className="marquee-track gap-2">
+              {[...TAGS, ...TAGS].map((tag, i) => (
                 <span
-                  key={tag}
+                  key={`${tag}-${i}`}
                   className="shrink-0 whitespace-nowrap rounded-full border border-border bg-surface-strong/60 px-3 py-1 text-xs font-semibold text-muted-foreground"
                 >
                   {tag}
