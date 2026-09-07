@@ -543,7 +543,9 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            <span className="text-accent">El dinero no desaparece. Solo cambia de lugar.</span>{" "}
+            <span className="text-accent">El dinero no desaparece. Solo cambia de lugar.</span>
+            <br />
+            <br />
             Y hasta que no sepas a dónde va el tuyo, va a seguir cambiándose al lugar de otro.
             Aprende a retenerlo primero y a hacerlo crecer después.
           </p>
@@ -553,11 +555,6 @@ function LandingPage() {
             Quiero tomar el control de mi dinero
           </a>
 
-          {/* 8. Microcopy de fricción */}
-          <p className="mt-3 text-xs text-muted-foreground">
-            Acceso inmediato · Pago único · Garantía de 7 días
-          </p>
-
           {/* 9. Prueba social */}
           <p className="mt-6 text-sm text-muted-foreground">
             4.9 <Stars /> + 8.432 lectores
@@ -565,8 +562,8 @@ function LandingPage() {
         </div>
 
         {/* 10. Logos / autoridad */}
-        <div className="mx-auto mt-10 max-w-4xl border-t border-border/60 pt-8 text-center">
-          <div className="mx-auto mt-5 max-w-2xl">
+        <div className="mx-auto mt-6 max-w-4xl text-center sm:border-t sm:border-border/60 sm:pt-6">
+          <div className="bleed-mobile sm:mx-auto sm:max-w-2xl">
             <img
               src="/medios-franja-logos.webp"
               alt="Este libro fue visto en varios medios de comunicación"
@@ -593,12 +590,12 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="bleed-mobile mt-0 bg-background px-6 py-8 text-center sm:mx-0 sm:mt-8 sm:px-0 sm:py-0">
+        <div className="bleed-mobile bg-background px-6 py-3 text-center sm:mx-0 sm:mt-8 sm:px-0 sm:py-4">
           <a href={CHECKOUT} className="btn-cta-gold cta-pulse-gold">
             Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
         </div>
-        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-md">
+        <div className="bleed-mobile sm:mx-auto sm:max-w-md">
           <img
             src="/metodo-orden-3-pasos.webp"
             alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
