@@ -340,17 +340,41 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           {/* 2. Titular principal — elemento dominante */}
           <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
-            ¿Sientes que con tu dinero siempre estás{" "}
-            <span className="text-accent">apagando incendios</span>?
+            Aprende a ver hacia dónde está yendo tu dinero, a poner{" "}
+            <span className="text-accent">una parte a salvo</span> y a dar tus primeros pasos
+            para hacerlo crecer desde US$100.
           </h1>
 
+          {/* 2b. Barra de tags de contenido */}
+          <div className="mx-auto mt-6 max-w-xl overflow-x-auto">
+            <div className="flex w-max gap-2 px-1 sm:mx-auto sm:w-auto sm:flex-wrap sm:justify-center">
+              {[
+                "🎯 Empezá con US$100",
+                "📉 Dónde se te va la plata",
+                "🛟 Tu reserva de emergencia",
+                "📈 Mentalidad de inversor",
+                "📊 Fondos, ETF y rebalanceo",
+                "🎚️ Control de riesgo",
+                "⏱️ 15 minutos por día",
+                "⚡ Acceso inmediato y de por vida",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="shrink-0 whitespace-nowrap rounded-full border border-border bg-surface-strong/60 px-3 py-1 text-xs font-semibold text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
           {/* 3. Imagen central de transformación */}
-          <div className="mx-auto mt-8 max-w-md">
+          <div className="mx-auto mt-8 max-w-xl">
             <img
-              src="/hero-fire-hombre-820.webp"
+              src="/hero-fire-hombre-completa.webp"
               alt="Hombre angustiado de noche frente a una olla en llamas con facturas, deudas y pagos vencidos ardiendo"
-              width={820}
-              height={820}
+              width={1536}
+              height={1024}
               fetchPriority="high"
               className="h-auto w-full rounded-2xl"
             />
@@ -358,9 +382,8 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            Aprende a detectar a dónde se te está escapando el dinero, construir una reserva
-            segura e invertir desde US$100 para empezar a hacer crecer lo que hoy simplemente
-            desaparece.
+            El dinero no desaparece. Cambia de lugar. La diferencia está en aprender a entender
+            hacia dónde se mueve.
           </p>
 
           {/* 7. CTA */}
