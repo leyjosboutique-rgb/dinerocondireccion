@@ -352,9 +352,9 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl text-center">
           {/* 2. Titular principal — elemento dominante */}
           <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
-            Aprende a ver hacia dónde está yendo tu dinero, a poner{" "}
-            <span className="text-accent">una parte a salvo</span> y a dar tus primeros pasos
-            para hacerlo crecer desde US$100.
+            Entiende hacia dónde se mueve tu dinero, aprende a poner{" "}
+            <span className="text-accent">una parte a salvo</span> y descubre cómo empezar a
+            hacerlo crecer desde US$100.
           </h1>
 
           {/* 2b. Barra de tags de contenido — cinta corrida infinita */}
@@ -385,8 +385,8 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            El dinero no desaparece. Cambia de lugar. La diferencia está en aprender a entender
-            hacia dónde se mueve.
+            El dinero no desaparece. Cambia de lugar. Cuando aprendes a ver hacia dónde se
+            mueve, puedes empezar a decidir qué conservar, qué proteger y qué hacer crecer.
           </p>
 
           {/* 7. CTA */}
