@@ -543,7 +543,9 @@ function LandingPage() {
 
           {/* 4. Subtítulo de pacing */}
           <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            <span className="text-accent">El dinero no desaparece. Solo cambia de lugar.</span>
+            <span className="font-display text-base font-extrabold uppercase tracking-wide text-accent sm:text-lg">
+              El dinero no desaparece. Solo cambia de lugar.
+            </span>
             <br />
             <br />
             Y hasta que no sepas a dónde va el tuyo, va a seguir cambiándose al lugar de otro.
@@ -646,6 +648,54 @@ function LandingPage() {
           <a href={CHECKOUT} className="btn-cta">
             Quiero empezar hoy
           </a>
+        </div>
+      </Section>
+
+      {/* 5b. Contraste — mismo lugar */}
+      <Section compact>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">
+            <span className="text-accent">Trabaja más, gana más</span> y aun así te sientes en el
+            mismo lugar.
+          </h2>
+
+          <div className="mt-5 flex items-center justify-center gap-4">
+            <span className="h-px w-10 bg-border" />
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              Si te ha pasado, no estás solo. Esto también es parte de la realidad.
+            </p>
+            <span className="h-px w-10 bg-border" />
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            {[
+              "Más trabajo",
+              "Más responsabilidades",
+              "Más gastos",
+              "Mismas cuentas",
+              "La misma sensación",
+            ].map((t) => (
+              <span
+                key={t}
+                className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-accent/50 text-accent">
+                  !
+                </span>
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-10 max-w-2xl text-lg">
+            <span className="font-bold text-accent">No se trata de cuánto ganas,</span> sino de lo
+            que pasa con tu dinero después de que entra.
+            <br />
+            Y ahí está la clave para salir del ciclo y empezar a construir la vida que realmente
+            quieres.
+          </p>
+
+          <div className="mx-auto mt-6 h-0.5 w-16 bg-accent" />
         </div>
       </Section>
 
