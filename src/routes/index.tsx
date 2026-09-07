@@ -85,12 +85,64 @@ const ORDER_EXAMPLES = [
 ];
 
 /** Sección 4 — Cómo se nota la diferencia en 60 días (future pacing). */
-const CHANGES = [
-  "Vas a dejar de preguntarte dónde desapareció tu dinero, y vas a empezar a ver tus gastos con más claridad.",
-  "Vas a tener una reserva que te dé más tranquilidad. Aunque sea pequeña al principio, un imprevisto ya no va a desordenarte por completo.",
-  "Vas a entender cómo dar tus primeros pasos para invertir, sin necesitar miles de dólares ni convertirte en experto.",
-  "Vas a detectar gastos que hoy pasan completamente desapercibidos, y a decidir conscientemente qué quieres mantener y qué ya no.",
-  "Vas a empezar a sentir algo que mucha gente no siente con su dinero: control.",
+/** Sección "60 días" — icono, título partido en 2 líneas (blanco + acento) y descripción. */
+const SIXTY_DAY_CHANGES = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+        <circle cx="11" cy="11" r="7" />
+        <path d="M21 21l-4.3-4.3" strokeLinecap="round" />
+      </svg>
+    ),
+    title: "Vas a entender",
+    highlight: "a dónde se va tu dinero",
+    desc: "Y dejar de preguntarte al final del mes “¿en qué se fue todo?”.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+        <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Vas a tener una reserva",
+    highlight: "que te dé tranquilidad",
+    desc: "Para que un imprevisto no te obligue a empezar de cero.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+        <path d="M3 17l5-5 4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15 8h5v5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Vas a dar tus primeros pasos",
+    highlight: "para hacerlo crecer",
+    desc: "Desde cantidades pequeñas, sin ser experto ni tener miles de dólares.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+        <circle cx="9" cy="20" r="1.2" fill="currentColor" stroke="none" />
+        <circle cx="18" cy="20" r="1.2" fill="currentColor" stroke="none" />
+        <path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Vas a gastar con más",
+    highlight: "intención y menos culpa",
+    desc: "Disfrutando lo que te importa, sin sentir que cada compra te aleja de tus metas.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+        <circle cx="12" cy="8" r="4" />
+        <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" strokeLinecap="round" />
+        <path d="M12 2.5l.8 1.7 1.9.2-1.4 1.3.4 1.9-1.7-1-1.7 1 .4-1.9-1.4-1.3 1.9-.2z" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+    title: "Vas a sentir que tienes",
+    highlight: "el control de tu dinero",
+    desc: "Y empezar a tomar decisiones que te acerquen a la vida que quieres construir.",
+  },
 ];
 
 /** Sección 7 — Qué encontrarás en el libro (contenido real, reformulado). */
@@ -625,19 +677,44 @@ function LandingPage() {
       </Section>
 
       {/* 9. Cómo se nota la diferencia en 60 días */}
-      <Section
-        tone="light"
-        eyebrow="En los próximos 60 días"
-        title="Así podrías empezar a notar la diferencia."
-      >
+      <Section eyebrow="Lo que vas a empezar a notar">
+        <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
+          <h2 className="text-balance text-3xl font-extrabold sm:text-4xl">
+            Cómo se te va a notar en los <span className="text-accent">próximos 60 días</span>
+          </h2>
+          <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+            Menos estrés. Más control. Un futuro más tranquilo.
+          </p>
+        </div>
+
         <ul className="mx-auto max-w-2xl space-y-4">
-          {CHANGES.map((c) => (
-            <li key={c} className="card-surface flex gap-3 p-5">
-              <span className="text-accent">✓</span>
-              <p className="text-sm leading-relaxed text-muted-foreground">{c}</p>
+          {SIXTY_DAY_CHANGES.map((c, i) => (
+            <li key={c.title} className="card-surface flex items-center gap-5 p-5">
+              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-background/60 text-[color:var(--gold)]">
+                {c.icon}
+                <span className="absolute -left-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-black text-accent-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </span>
+              <div className="border-l border-border/60 pl-4">
+                <p className="font-display text-base font-extrabold leading-tight sm:text-lg">
+                  {c.title} <span className="text-accent">{c.highlight}</span>
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+              </div>
             </li>
           ))}
         </ul>
+
+        <div className="mx-auto mt-10 max-w-xl border-t border-border/60 pt-8 text-center">
+          <p className="text-sm font-semibold text-muted-foreground">
+            El cambio no empieza cuando ganas más.
+          </p>
+          <p className="mt-1 text-lg font-extrabold text-accent sm:text-xl">
+            Empieza cuando entiendes qué hacer con lo que ya llega a tus manos.
+          </p>
+        </div>
+
         <div className="mt-8 text-center">
           <a href={CHECKOUT} className="btn-cta">
             Quiero empezar hoy
