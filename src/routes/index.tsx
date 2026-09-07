@@ -682,31 +682,17 @@ function LandingPage() {
       </Section>
 
       {/* 7. El nuevo mecanismo */}
-      <Section
-        tone="light"
-        title="No necesitas hacer todo de golpe. Solo empezar en el orden correcto."
-        compact
-      >
-        <p className="mx-auto -mt-4 mb-8 max-w-2xl text-center text-muted-foreground">
-          La mayoría intenta invertir antes de ordenar su dinero. Y por eso se frustra. Aquí vas a
-          seguir un camino simple:
-        </p>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {STAGES.map((s) => (
-            <article key={s.t} className="card-surface p-6">
-              <span className="font-display text-3xl font-black text-accent/40">{s.n}</span>
-              <h3 className="mt-2 text-base font-bold uppercase">{s.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
-          <p className="font-display text-lg font-extrabold uppercase tracking-wide text-accent">
-            El resultado
-          </p>
-          <p className="mt-1 text-lg font-semibold">
-            Menos ansiedad. Más claridad. Mejores decisiones.
-          </p>
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/no-hacer-todo-de-golpe.webp"
+            alt="No necesitas hacer todo de golpe. Solo empezar en el orden correcto. La mayoría intenta invertir antes de ordenar su dinero y por eso se frustra. Un camino simple: 01 entiendes a dónde se está yendo tu dinero, 02 gastas sin culpa, 03 construyes una reserva, 04 empiezas a invertir. El resultado: menos ansiedad, más claridad, mejores decisiones."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
