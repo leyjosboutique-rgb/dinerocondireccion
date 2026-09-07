@@ -305,6 +305,71 @@ function useCountdown(seconds: number) {
   return `${m}:${s}`;
 }
 
+/** Notificaciones de compra — prueba social flotante, ciudades variadas en LATAM. */
+const PURCHASE_NOTIFICATIONS = [
+  { name: "Fabián", city: "Buenos Aires", item: "Entender bien el dinero + 7 bonos", mins: 35 },
+  { name: "Camila", city: "Bogotá", item: "Entender bien el dinero + 7 bonos", mins: 12 },
+  { name: "Diego", city: "Ciudad de México", item: "Entender bien el dinero", mins: 48 },
+  { name: "Valentina", city: "Lima", item: "Entender bien el dinero + 7 bonos", mins: 6 },
+  { name: "Andrés", city: "Santiago", item: "Entender bien el dinero + 7 bonos", mins: 21 },
+  { name: "Sofía", city: "Medellín", item: "Entender bien el dinero", mins: 3 },
+  { name: "Mateo", city: "Guayaquil", item: "Entender bien el dinero + 7 bonos", mins: 40 },
+];
+
+/** Toast de compra reciente: cambia de persona cada 30s, visible ~6s cada vez. */
+function PurchaseToast() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const showTimeout = setTimeout(() => setVisible(true), 2500);
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % PURCHASE_NOTIFICATIONS.length);
+        setVisible(true);
+      }, 400);
+    }, 30000);
+    return () => {
+      clearTimeout(showTimeout);
+      clearInterval(interval);
+    };
+  }, []);
+
+  // Oculta cada tarjeta ~6s después de mostrarse, antes del siguiente ciclo de 30s.
+  useEffect(() => {
+    if (!visible) return;
+    const t = setTimeout(() => setVisible(false), 6000);
+    return () => clearTimeout(t);
+  }, [visible]);
+
+  const n = PURCHASE_NOTIFICATIONS[index];
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`fixed bottom-24 left-3 z-50 max-w-[280px] transition-all duration-500 sm:bottom-6 sm:left-4 ${
+        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
+      }`}
+    >
+      <div className="flex items-center gap-3 rounded-2xl border border-border bg-surface-strong/95 p-3 shadow-card backdrop-blur">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent">
+          {n.name[0]}
+        </span>
+        <div className="min-w-0">
+          <p className="truncate text-xs font-bold">
+            {n.name} de {n.city}
+          </p>
+          <p className="truncate text-[11px] text-muted-foreground">Compró {n.item}</p>
+          <p className="text-[10px] text-muted-foreground">
+            hace {n.mins} min · <span className="text-accent">✓ Verificado</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Tokens de sección clara ("blanca") y verde clara, para alternar el fondo
 // entre secciones tal como lo hace la página que estamos modelando.
 const LIGHT_TONE_VARS = {
@@ -473,31 +538,17 @@ function LandingPage() {
       </div>
 
       {/* 2. Identificación inmediata */}
-      <Section
-        tone="light"
-        title={
-          <>
-            Dime si alguna de estas te resulta <span className="text-accent">demasiado familiar</span>…
-          </>
-        }
-      >
-        <div className="grid gap-5 sm:grid-cols-2">
-          {SITUATIONS.map((s) => (
-            <article key={s.t} className="card-surface p-6">
-              <h3 className="text-lg font-bold">{s.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
-          <p className="text-muted-foreground">
-            Si te identificaste con dos o más, no necesitas tener todo resuelto para empezar a
-            ordenar tu situación.
-          </p>
-          <p className="mt-1 font-display text-lg font-extrabold">
-            Necesitas entender qué está pasando con tu dinero y empezar a tomar mejores
-            decisiones con él.
-          </p>
+      <Section tone="light">
+        <div className="mx-auto max-w-md sm:max-w-lg">
+          <img
+            src="/identificacion-situaciones.webp"
+            alt="Dime si alguna de estas te resulta demasiado familiar: cobras y a los pocos días no sabes a dónde se fue el dinero, cada gasto parece pequeño hasta que ves lo que te quedó, quieres invertir pero sientes que necesitas saber demasiado antes de empezar, y cualquier imprevisto te desordena todo. Necesitas entender qué está pasando con tu dinero y empezar a tomar mejores decisiones con él."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full rounded-2xl"
+          />
         </div>
         <div className="mt-8 text-center">
           <a href={CHECKOUT} className="btn-cta">
@@ -506,28 +557,8 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 3. Sección de frustración */}
-      <Section tone="green" title="Trabajas, cobras y te esfuerzas… pero igual sientes que nunca terminas de avanzar.">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-muted-foreground">
-            Y eso cansa. Porque no se trata necesariamente de que seas irresponsable. Muchas
-            veces simplemente nadie te enseñó qué hacer con tu dinero una vez que llega a tu
-            cuenta.
-          </p>
-          <p className="mt-6 text-lg font-semibold">
-            Este libro no busca que vivas contando monedas. Busca que entiendas cómo hacer que el
-            esfuerzo que ya haces empiece a quedarse contigo.
-          </p>
-        </div>
-        <div className="mt-8 text-center">
-          <a href={CHECKOUT} className="btn-cta">
-            Quiero dejar de sentir que mi dinero desaparece
-          </a>
-        </div>
-      </Section>
-
       {/* 4. El problema invisible */}
-      <Section tone="light" title="El problema puede empezar antes de que aparezca el gasto.">
+      <Section tone="green" title="El problema puede empezar antes de que aparezca el gasto.">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-muted-foreground">
             Muchas decisiones financieras parecen inevitables en el momento en que ocurren. Pero
@@ -556,7 +587,7 @@ function LandingPage() {
       </Section>
 
       {/* 5. El costo de seguir igual */}
-      <Section tone="green" title="Lo agotador no siempre es el dinero que falta. Es tener que reorganizarlo todo una y otra vez.">
+      <Section tone="light" title="Lo agotador no siempre es el dinero que falta. Es tener que reorganizarlo todo una y otra vez.">
         <ul className="mx-auto max-w-2xl space-y-4">
           {[
             "Cada imprevisto parece destruir el avance que habías logrado.",
@@ -576,10 +607,21 @@ function LandingPage() {
         <p className="mx-auto mt-8 max-w-xl text-center text-lg font-semibold">
           No quiero seguir resolviendo los mismos problemas una y otra vez.
         </p>
+        <div className="mx-auto mt-10 max-w-sm sm:max-w-md">
+          <img
+            src="/metodo-orden-3-pasos.webp"
+            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full rounded-2xl object-contain"
+          />
+        </div>
       </Section>
 
       {/* 6. Reframe / nueva creencia */}
-      <Section tone="light" title="No siempre gana más el que termina con más.">
+      <Section tone="green" title="No siempre gana más el que termina con más.">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-muted-foreground">
             Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que
@@ -596,7 +638,7 @@ function LandingPage() {
       </Section>
 
       {/* 7. El nuevo mecanismo */}
-      <Section tone="green" title="No necesitas hacer todo de golpe. Solo empezar en el orden correcto.">
+      <Section tone="light" title="No necesitas hacer todo de golpe. Solo empezar en el orden correcto.">
         <p className="mx-auto -mt-4 mb-8 max-w-2xl text-center text-muted-foreground">
           La mayoría intenta invertir antes de ordenar su dinero. Y por eso se frustra. Aquí vas a
           seguir un camino simple:
@@ -621,7 +663,7 @@ function LandingPage() {
       </Section>
 
       {/* 8. Por qué el orden cambia todo */}
-      <Section tone="light" title="No todas las buenas decisiones son buenas decisiones para este momento.">
+      <Section tone="green" title="No todas las buenas decisiones son buenas decisiones para este momento.">
         <div className="mx-auto max-w-2xl">
           <p className="text-center text-muted-foreground">
             Puedes escuchar muy buenos consejos. Pero si intentas aplicarlos sin saber qué
@@ -643,7 +685,7 @@ function LandingPage() {
 
       {/* 9. Cómo se nota la diferencia en 60 días */}
       <Section
-        tone="green"
+        tone="light"
         eyebrow="En los próximos 60 días"
         title="Así podrías empezar a notar la diferencia."
       >
@@ -663,7 +705,7 @@ function LandingPage() {
       </Section>
 
       {/* 10. Introducción del libro */}
-      <Section tone="light">
+      <Section tone="green">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-lg font-semibold">
             Comprender esto es una cosa. Tener una guía para empezar a aplicarlo es otra.
@@ -679,7 +721,7 @@ function LandingPage() {
 
       {/* 11. Qué encontrarás en el libro */}
       <Section
-        tone="green"
+        tone="light"
         eyebrow="Qué encontrarás"
         title="No se trata de leer más sobre dinero. Se trata de comenzar a entenderlo de una manera que puedas aplicar."
       >
@@ -704,7 +746,7 @@ function LandingPage() {
 
       {/* 12. Demostración visual */}
       <Section
-        tone="light"
+        tone="green"
         eyebrow="Mira cómo se ve por dentro"
         title="No vas a recibir teoría para leer y olvidar."
       >
@@ -719,7 +761,7 @@ function LandingPage() {
 
       {/* 13. Bonos */}
       <Section
-        tone="green"
+        tone="light"
         eyebrow="Y como leer sin aplicar no cambia nada"
         title="También recibes 7 herramientas para ponerlo en práctica."
       >
@@ -755,7 +797,7 @@ function LandingPage() {
       </Section>
 
       {/* 14. Testimonios */}
-      <Section tone="light" title="No tienes que creerme. Mira lo que pasó cuando otras personas empezaron a entender su dinero.">
+      <Section tone="green" title="No tienes que creerme. Mira lo que pasó cuando otras personas empezaron a entender su dinero.">
         <div className="card-surface mb-10 grid items-center gap-6 p-6 md:grid-cols-[200px_1fr] md:p-8">
           <div>
             <ImageSlot label="[FOTO DEL TESTIMONIO — SUBIR DESPUÉS]" ratio="1 / 1" />
@@ -817,7 +859,7 @@ function LandingPage() {
       </Section>
 
       {/* 15. Stack de la oferta */}
-      <Section tone="green" id="cb-precio" title="Todo lo que necesitas para dejar de improvisar con tu dinero.">
+      <Section tone="light" id="cb-precio" title="Todo lo que necesitas para dejar de improvisar con tu dinero.">
         <div className="card-surface mx-auto max-w-2xl overflow-hidden">
           <div className="bg-[color:var(--primary)] py-2 text-center font-display text-xs font-extrabold uppercase tracking-[0.16em] text-primary-foreground">
             Oferta por tiempo limitado
@@ -880,7 +922,7 @@ function LandingPage() {
       </Section>
 
       {/* 18. Cómo recibes el producto */}
-      <Section tone="light" eyebrow="Simple y rápido" title="Empezar es más simple de lo que parece.">
+      <Section tone="green" eyebrow="Simple y rápido" title="Empezar es más simple de lo que parece.">
         <div className="grid gap-5 md:grid-cols-3">
           {[
             ["Haces tu compra.", "Eliges tu medio de pago y completas el proceso de forma segura."],
@@ -901,7 +943,7 @@ function LandingPage() {
       </Section>
 
       {/* 17. Garantía */}
-      <Section tone="green" title="Pruébalo sin sentir que estás apostando tu dinero.">
+      <Section tone="light" title="Pruébalo sin sentir que estás apostando tu dinero.">
         <div className="card-surface mx-auto grid max-w-3xl items-center gap-6 p-8 md:grid-cols-[200px_1fr]">
           <div className="mx-auto w-44">
             <ImageSlot
@@ -934,7 +976,7 @@ function LandingPage() {
       </Section>
 
       {/* 19. FAQ */}
-      <Section tone="light" title="Preguntas frecuentes">
+      <Section tone="green" title="Preguntas frecuentes">
         <div className="mx-auto max-w-3xl space-y-3">
           {FAQS.map((f) => (
             <details key={f.q} className="card-surface group p-5">
@@ -959,7 +1001,7 @@ function LandingPage() {
       </Section>
 
       {/* 20. Cierre final */}
-      <Section tone="green">
+      <Section tone="light">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-muted-foreground">
             No necesitas resolver toda tu vida financiera hoy. Solo necesitas dejar de postergar
@@ -1010,6 +1052,9 @@ function LandingPage() {
           </a>
         </div>
       </div>
+
+      {/* Notificación flotante de compra reciente */}
+      <PurchaseToast />
     </main>
   );
 }
