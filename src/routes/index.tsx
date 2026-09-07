@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageSlot } from "@/components/ImageSlot";
 
 export const Route = createFileRoute("/")({
@@ -35,13 +35,6 @@ const PRICING = {
   price: "$13",
 };
 const PRICE_LABEL = `${PRICING.price} ${PRICING.currency}`;
-
-/** Progresión de 3 pasos debajo de la imagen del hero. */
-const HERO_STEPS = [
-  { t: "Entiende", d: "A dónde se va tu dinero" },
-  { t: "Protege", d: "Con una reserva que aguante un golpe" },
-  { t: "Invierte", d: "Desde US$100, con cabeza de inversor" },
-];
 
 /** Sección 2 — Identificación inmediata. */
 const SITUATIONS = [
@@ -345,23 +338,14 @@ function LandingPage() {
       {/* 1. HERO */}
       <header className="hero-glow px-5 pb-16 pt-12 sm:pt-16">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="eyebrow">Entender bien el dinero</p>
-
           {/* 2. Titular principal — elemento dominante */}
           <h1 className="mx-auto mt-4 max-w-2xl text-balance text-3xl font-extrabold leading-[1.15] sm:text-5xl">
             ¿Sientes que con tu dinero siempre estás{" "}
             <span className="text-accent">apagando incendios</span>?
           </h1>
 
-          {/* 3. Subtítulo de pacing */}
-          <p className="mx-auto mt-5 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
-            Aprende a detectar a dónde se te está escapando el dinero, construir una reserva
-            segura e invertir desde US$100 para empezar a hacer crecer lo que hoy simplemente
-            desaparece.
-          </p>
-
-          {/* 4. Imagen central de transformación */}
-          <div className="mx-auto mt-10 max-w-md">
+          {/* 3. Imagen central de transformación */}
+          <div className="mx-auto mt-8 max-w-md">
             <img
               src="/hero-fire-hombre-820.webp"
               alt="Hombre angustiado de noche frente a una olla en llamas con facturas, deudas y pagos vencidos ardiendo"
@@ -372,29 +356,11 @@ function LandingPage() {
             />
           </div>
 
-          {/* 5. Progresión de 3 pasos */}
-          <div className="mx-auto mt-9 flex max-w-2xl flex-col items-stretch justify-center gap-2 sm:flex-row sm:items-center">
-            {HERO_STEPS.map((s, i) => (
-              <Fragment key={s.t}>
-                <div className="card-surface flex-1 px-5 py-4 text-center">
-                  <p className="font-display text-sm font-extrabold uppercase tracking-[0.14em] text-accent">
-                    {s.t}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-muted-foreground">{s.d}</p>
-                </div>
-                {i < HERO_STEPS.length - 1 && (
-                  <span className="rotate-90 text-lg text-muted-foreground/50 sm:rotate-0" aria-hidden="true">
-                    →
-                  </span>
-                )}
-              </Fragment>
-            ))}
-          </div>
-
-          {/* 6. Frase de mecanismo */}
-          <p className="mx-auto mt-8 max-w-md text-balance font-display text-lg font-extrabold leading-snug sm:text-xl">
-            El problema no siempre es cuánto ganas. A veces es que nadie te enseñó{" "}
-            <span className="text-accent">qué hacer primero</span>.
+          {/* 4. Subtítulo de pacing */}
+          <p className="mx-auto mt-8 max-w-md text-pretty text-base font-semibold leading-snug text-muted-foreground sm:text-lg">
+            Aprende a detectar a dónde se te está escapando el dinero, construir una reserva
+            segura e invertir desde US$100 para empezar a hacer crecer lo que hoy simplemente
+            desaparece.
           </p>
 
           {/* 7. CTA */}
