@@ -595,7 +595,7 @@ function LandingPage() {
 
       {/* 2. Identificación inmediata */}
       <Section tone="light" compact>
-        <div className="-mx-5 sm:mx-auto sm:max-w-lg">
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
           <img
             src="/identificacion-situaciones.webp"
             alt="Dime si alguna de estas te resulta demasiado familiar: cobras y a los pocos días no sabes a dónde se fue el dinero, cada gasto parece pequeño hasta que ves lo que te quedó, quieres invertir pero sientes que necesitas saber demasiado antes de empezar, y cualquier imprevisto te desordena todo. Necesitas entender qué está pasando con tu dinero y empezar a tomar mejores decisiones con él."
@@ -607,7 +607,7 @@ function LandingPage() {
           />
         </div>
         <div className="-mx-5 mt-4 px-5 text-center sm:mx-0 sm:mt-8 sm:px-0">
-          <a href={CHECKOUT} className="btn-cta w-full sm:w-auto">
+          <a href={CHECKOUT} className="btn-cta full-mobile sm:w-auto">
             Sí. Esto es exactamente lo que me pasa
           </a>
         </div>
@@ -657,7 +657,7 @@ function LandingPage() {
             Menos ansiedad. Más claridad. Mejores decisiones.
           </p>
         </div>
-        <div className="-mx-5 mt-6 sm:mx-auto sm:max-w-md">
+        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-md">
           <img
             src="/metodo-orden-3-pasos.webp"
             alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
