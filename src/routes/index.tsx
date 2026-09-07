@@ -608,9 +608,9 @@ function LandingPage() {
             className="h-auto w-full sm:rounded-2xl"
           />
         </div>
-        <div className="bleed-mobile mt-4 text-center sm:mx-0 sm:mt-8">
-          <a href={CHECKOUT} className="btn-cta full-mobile sm:w-auto">
-            Sí. Esto es exactamente lo que me pasa
+        <div className="bleed-mobile mt-0 text-center sm:mx-0 sm:mt-8">
+          <a href={CHECKOUT} className="btn-cta cta-pulse full-mobile sm:w-auto sm:rounded-full">
+            Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
         </div>
       </Section>
