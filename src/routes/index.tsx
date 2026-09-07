@@ -361,9 +361,13 @@ function LandingPage() {
 
           {/* 4. Imagen central de transformación */}
           <div className="mx-auto mt-10 max-w-md">
-            <ImageSlot
-              label="[IMAGEN CENTRAL DE TRANSFORMACIÓN — REACCIONAR → ENTENDER (caos → claridad, apagar incendios → saber qué hace falta primero). SUBIR DESPUÉS. Overlay sugerido al integrar la imagen: ANTES “Cuando todo parece urgente” → DESPUÉS “Cuando ya sabes qué va primero”. No debe verse como pobre→rico.]"
-              ratio="1 / 1"
+            <img
+              src="/hero-fire-hombre-820.webp"
+              alt="Hombre preocupado revisando sus finanzas de noche mientras facturas y deudas arden en un balde sobre su escritorio"
+              width={820}
+              height={820}
+              fetchPriority="high"
+              className="w-full rounded-2xl"
             />
           </div>
 
