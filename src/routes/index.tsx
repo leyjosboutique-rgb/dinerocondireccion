@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const CHECKOUT = "#cb-precio";
+const CHECKOUT = "https://pay.hotmart.com/S107517058U?off=twjurn7f&checkoutMode=10";
 
 /** Tags de contenido — cinta corrida debajo del titular del hero. */
 const TAGS = [
@@ -44,7 +44,7 @@ const TAGS = [
 /** Precio real y editable: cambia moneda, monto y formato desde aquí. */
 const PRICING = {
   currency: "USD",
-  price: "$13",
+  price: "$15",
 };
 const PRICE_LABEL = `${PRICING.price} ${PRICING.currency}`;
 
@@ -784,9 +784,6 @@ function LandingPage() {
         <div className="space-y-8">
           {REVIEW_GROUPS.map((g) => (
             <div key={g.objection}>
-              <p className="mb-4 text-center font-display text-sm font-bold text-accent">
-                "{g.objection}"
-              </p>
               {g.items.length > 0 ? (
                 <div className="grid gap-5 md:grid-cols-2">
                   {g.items.map((r) => (
@@ -884,7 +881,7 @@ function LandingPage() {
                 Este precio se mantiene por{" "}
                 <span className="font-bold tabular-nums text-foreground">{timer}</span>
               </p>
-              <a href="#cb-precio" className="btn-cta mt-6 w-full">
+              <a href={CHECKOUT} className="btn-cta mt-6 w-full">
                 Sí, quiero entender mi dinero
               </a>
               <p className="mt-3 text-xs text-muted-foreground">
