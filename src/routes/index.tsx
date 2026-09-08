@@ -727,39 +727,50 @@ function LandingPage() {
       </Section>
 
       {/* 13. Bonos */}
-      <Section
-        tone="light"
-        eyebrow="Y como leer sin aplicar no cambia nada"
-        title="También recibes 7 herramientas para ponerlo en práctica."
-      >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {BONUSES.map((b) => (
-            <article key={b.n} className="card-surface flex flex-col overflow-hidden">
-              <ImageSlot
-                label="[PORTADA DEL BONO — SUBIR DESPUÉS]"
-                ratio="16 / 10"
-                className="rounded-none border-0 border-b-2"
-              />
-              <div className="flex flex-1 flex-col p-5">
-                <p className="text-sm font-semibold leading-snug text-muted-foreground">
-                  "{b.o}"
-                </p>
-                <h3 className="mt-3 text-base font-bold leading-snug">{b.t}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{b.d}</p>
-                <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
-                  <span className="eyebrow block">Transformación</span>
-                  {b.x}
-                </p>
-                <p className="mt-3 text-xs font-semibold text-accent">INCLUIDO HOY</p>
-              </div>
-            </article>
-          ))}
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/bonos-lo-que-recibes.webp"
+            alt="Lo que recibís: no recibís solo un libro, recibís un sistema para dejar de preguntarte qué pasó con tu dinero y empezar a saber qué hacer con él. Bono 1: el mapa de tu dinero. Bono 2: tu número de tranquilidad. Bono 3: el primer movimiento. 3 herramientas exclusivas incluidas sin costo."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
-        <div className="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
-          <p className="text-muted-foreground">
-            No estás recibiendo solamente información. Estás recibiendo herramientas para
-            empezar a aplicarla.
-          </p>
+        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-lg">
+          <img
+            src="/bono-1-mapa-de-tu-dinero.webp"
+            alt="Bono 1: el mapa de tu dinero. ¿Sigues sin saber dónde se te va el dinero? Descúbrelo, entiéndelo, toma el control. Una herramienta para ver con claridad qué está pasando con el dinero que ya ganas."
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
+        </div>
+        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-lg">
+          <img
+            src="/bono-2-numero-de-tranquilidad.webp"
+            alt="Bono 2: tu número de tranquilidad. ¿Y si pasa algo y vuelvo a cero? Prepárate hoy, vive más tranquila mañana. Una referencia clara para empezar a construir tu propia base de seguridad: primero tranquilidad, después crecimiento."
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
+        </div>
+        <div className="bleed-mobile mt-6 sm:mx-auto sm:max-w-lg">
+          <img
+            src="/bono-3-primer-movimiento.webp"
+            alt="Bono 3: el primer movimiento. Sé que tengo que hacer algo, pero no sé por dónde empezar. De la teoría a la acción, paso a paso. Una guía simple para que dejes de pensar y empieces a hacer: terminas sabiendo qué mover primero."
+            width={1024}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
