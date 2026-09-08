@@ -514,7 +514,7 @@ function LandingPage() {
               {[...TAGS, ...TAGS].map((tag, i) => (
                 <span
                   key={`${tag}-${i}`}
-                  className="shrink-0 whitespace-nowrap rounded-full border border-border bg-surface-strong/60 px-3 py-1 text-xs font-semibold text-muted-foreground"
+                  className="shrink-0 whitespace-nowrap rounded-full border border-border bg-white px-3 py-1 text-xs font-semibold text-slate-900"
                 >
                   {tag}
                 </span>
