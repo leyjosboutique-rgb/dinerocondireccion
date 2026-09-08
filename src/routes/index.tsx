@@ -483,8 +483,28 @@ function Section({
   );
 }
 
+function useShowAfterHalfPage() {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      setShow(progress >= 0.5);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return show;
+}
+
 function LandingPage() {
   const timer = useCountdown(14 * 60 + 59);
+  const showStickyCta = useShowAfterHalfPage();
   return (
     <main className="min-h-screen pb-24">
       {/* Barra superior */}
@@ -981,8 +1001,12 @@ function LandingPage() {
         <p className="mt-2">Acceso inmediato por correo · Garantía de 7 días</p>
       </footer>
 
-      {/* Barra fija inferior */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface-strong/95 px-4 py-3 backdrop-blur">
+      {/* Barra fija inferior — aparece solo pasada la mitad de la página */}
+      <div
+        className={`fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface-strong/95 px-4 py-3 backdrop-blur transition-transform duration-300 ${
+          showStickyCta ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4">
           <p className="font-display text-lg font-extrabold text-accent">{PRICE_LABEL}</p>
           <a href={CHECKOUT} className="btn-cta !px-6 !py-3 text-sm">
