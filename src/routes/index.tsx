@@ -843,8 +843,16 @@ function LandingPage() {
             Oferta por tiempo limitado
           </div>
           <div className="p-6 sm:p-8">
-            <div className="mx-auto max-w-sm">
-              <ImageSlot label="[MOCKUP FINAL DEL PRODUCTO + BONOS — SUBIR DESPUÉS]" ratio="4 / 3" />
+            <div className="mx-auto max-w-sm overflow-hidden rounded-2xl">
+              <img
+                src="/stack-oferta-completa.webp"
+                alt="Entender bien el dinero + Bono 1 el mapa de tu dinero + Bono 2 tu número de tranquilidad + Bono 3 el primer movimiento. 3 herramientas exclusivas incluidas sin costo."
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full"
+              />
             </div>
             <ul className="mt-7 divide-y divide-border text-sm">
               <li className="flex items-start justify-between gap-4 py-3">
