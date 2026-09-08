@@ -913,35 +913,17 @@ function LandingPage() {
       </Section>
 
       {/* 17. Garantía */}
-      <Section tone="light" title="Pruébalo sin sentir que estás apostando tu dinero.">
-        <div className="card-surface mx-auto grid max-w-3xl items-center gap-6 p-8 md:grid-cols-[200px_1fr]">
-          <div className="mx-auto w-44">
-            <ImageSlot
-              label="[SELLO DE GARANTÍA — SUBIR DESPUÉS]"
-              ratio="1 / 1"
-              className="!rounded-full"
-            />
-          </div>
-          <div>
-            <p className="font-display text-2xl font-black text-accent">7 días de garantía</p>
-            <p className="mt-3 text-muted-foreground">
-              Tienes 7 días para revisar el material y decidir si es para ti. Si sientes que no
-              te aporta valor, puedes solicitar la devolución según las condiciones indicadas.
-            </p>
-            <p className="mt-4 text-sm font-semibold">
-              El riesgo de seguir sin entender qué pasa con tu dinero es tuyo todos los meses. El
-              riesgo de probar el libro no tiene por qué serlo.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted-foreground">
-              {["Compra 100% segura", "7 días de garantía", "Material digital", "Pago único"].map(
-                (b) => (
-                  <span key={b} className="rounded-full border border-border px-3 py-1">
-                    {b}
-                  </span>
-                ),
-              )}
-            </div>
-          </div>
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/garantia-7-dias.webp"
+            alt="7 días de garantía. Tienes 7 días para revisar el material y decidir si es para ti. Si sientes que no te aporta valor, puedes solicitar la devolución según las condiciones indicadas. El riesgo de seguir sin entender qué pasa con tu dinero es tuyo todos los meses, el riesgo de probar el libro no tiene por qué serlo. Compra 100% segura, 7 días de garantía, material digital, pago único sin cargos extras."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
