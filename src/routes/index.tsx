@@ -697,27 +697,17 @@ function LandingPage() {
       </Section>
 
       {/* 11. Qué encontrarás en el libro */}
-      <Section
-        tone="light"
-        eyebrow="Qué encontrarás"
-        title="No se trata de leer más sobre dinero. Se trata de comenzar a entenderlo de una manera que puedas aplicar."
-      >
-        <div className="card-surface grid gap-8 p-6 md:grid-cols-2 md:p-8">
-          <div>
-            <ImageSlot label="[MOCKUP DEL LIBRO — SUBIR DESPUÉS]" ratio="1 / 1" />
-            <p className="mt-4 text-center eyebrow">Entender bien el dinero</p>
-          </div>
-          <div className="space-y-5">
-            {INCLUDES.map((it) => (
-              <div key={it.t}>
-                <p className="flex gap-2 text-sm font-semibold">
-                  <span className="text-accent">✓</span>
-                  {it.t}
-                </p>
-                <p className="mt-1 pl-6 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
-              </div>
-            ))}
-          </div>
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/que-incluye-el-libro.webp"
+            alt="Qué recibís: todo lo que incluye el libro Entender bien el dinero. 01 ves a dónde se te va el dinero, 02 aprendes a organizar tu dinero, 03 creas tu fondo de emergencia, 04 sales de deudas, 05 das tus primeros US$100 invertidos, 06 invertís con estrategia, 07 tomas mejores decisiones, 08 desarrollas la mentalidad correcta. Más que un libro, es un plan para tu libertad: más claridad, más tranquilidad, más oportunidades."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
