@@ -696,42 +696,6 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 8. Por qué el orden cambia todo */}
-      <Section tone="green" title="No todas las buenas decisiones son buenas decisiones para este momento.">
-        <div className="mx-auto max-w-2xl">
-          <p className="text-center text-muted-foreground">
-            Puedes escuchar muy buenos consejos. Pero si intentas aplicarlos sin saber qué
-            prioridad tienes en este momento, es fácil terminar frustrado. Por ejemplo:
-          </p>
-          <ul className="mt-6 space-y-3">
-            {ORDER_EXAMPLES.map((e) => (
-              <li key={e} className="flex gap-3 text-sm text-muted-foreground">
-                <span className="text-accent">·</span>
-                {e}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-center text-lg font-semibold">
-            Quizás no necesitas hacer todo. Necesitas saber qué tiene sentido hacer ahora.
-          </p>
-        </div>
-      </Section>
-
-      {/* 10. Introducción del libro */}
-      <Section tone="green">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-lg font-semibold">
-            Comprender esto es una cosa. Tener una guía para empezar a aplicarlo es otra.
-          </p>
-          <p className="mt-5 text-xl font-extrabold">Entender bien el dinero</p>
-          <p className="mt-4 text-muted-foreground">
-            Todo lo que necesitas para dejar de improvisar con tu dinero: identificar en qué se
-            va, organizarlo sin volverte esclavo de una planilla, construir tu reserva, y dar tus
-            primeros pasos para invertir.
-          </p>
-        </div>
-      </Section>
-
       {/* 11. Qué encontrarás en el libro */}
       <Section
         tone="light"
