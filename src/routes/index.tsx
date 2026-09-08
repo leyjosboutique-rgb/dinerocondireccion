@@ -726,8 +726,17 @@ function LandingPage() {
           Vas a encontrar explicaciones simples, ejemplos y herramientas para aplicar mientras
           avanzas.
         </p>
-        <div className="mx-auto max-w-3xl">
-          <ImageSlot label="[INTERIOR DEL LIBRO — SUBIR DESPUÉS]" ratio="16 / 10" />
+        <div className="bleed-mobile mx-auto max-w-lg overflow-hidden sm:rounded-2xl">
+          <video
+            src="/interior-libro-demo.mp4"
+            controls
+            playsInline
+            loop
+            preload="metadata"
+            className="h-auto w-full"
+          >
+            Tu navegador no soporta video HTML5.
+          </video>
         </div>
       </Section>
 
