@@ -605,6 +605,36 @@ function LandingPage() {
         </div>
       </Section>
 
+      {/* 5b. Contraste — mismo lugar */}
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/trabaja-mas-gana-mas.webp"
+            alt="Trabaja más, gana más y aun así te sientes en el mismo lugar. Si te ha pasado, no estás solo, esto también es parte de la realidad: más trabajo, más responsabilidades, más gastos, mismas cuentas, la misma sensación. No se trata de cuánto ganas, sino de lo que pasa con tu dinero después de que entra. Y ahí está la clave para salir del ciclo y empezar a construir la vida que realmente quieres."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
+        </div>
+      </Section>
+
+      {/* 6. Reframe / nueva creencia */}
+      <Section tone="green" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/reframe-no-siempre-gana-mas.webp"
+            alt="No siempre gana más el que termina con más. Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que ganan bien y siguen llegando justas. Y hay personas que, ganando menos, construyen ahorro, tranquilidad y patrimonio. La diferencia no siempre está en cuánto entra. Está en lo que haces después de que entra."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
+        </div>
+      </Section>
+
       {/* 9. Cómo se nota la diferencia en 60 días */}
       <Section eyebrow="Lo que vas a empezar a notar">
         <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
@@ -648,36 +678,6 @@ function LandingPage() {
           <a href={CHECKOUT} className="btn-cta">
             Quiero empezar hoy
           </a>
-        </div>
-      </Section>
-
-      {/* 5b. Contraste — mismo lugar */}
-      <Section tone="light" flush>
-        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
-          <img
-            src="/trabaja-mas-gana-mas.webp"
-            alt="Trabaja más, gana más y aun así te sientes en el mismo lugar. Si te ha pasado, no estás solo, esto también es parte de la realidad: más trabajo, más responsabilidades, más gastos, mismas cuentas, la misma sensación. No se trata de cuánto ganas, sino de lo que pasa con tu dinero después de que entra. Y ahí está la clave para salir del ciclo y empezar a construir la vida que realmente quieres."
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full sm:rounded-2xl"
-          />
-        </div>
-      </Section>
-
-      {/* 6. Reframe / nueva creencia */}
-      <Section tone="green" flush>
-        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
-          <img
-            src="/reframe-no-siempre-gana-mas.webp"
-            alt="No siempre gana más el que termina con más. Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que ganan bien y siguen llegando justas. Y hay personas que, ganando menos, construyen ahorro, tranquilidad y patrimonio. La diferencia no siempre está en cuánto entra. Está en lo que haces después de que entra."
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full sm:rounded-2xl"
-          />
         </div>
       </Section>
 
