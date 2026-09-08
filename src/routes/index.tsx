@@ -584,17 +584,6 @@ function LandingPage() {
             Sí. Esto es exactamente lo que me pasa <span className="cta-arrow">→</span>
           </a>
         </div>
-        <div className="bleed-mobile sm:mx-auto sm:max-w-md">
-          <img
-            src="/metodo-orden-3-pasos.webp"
-            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full sm:rounded-2xl"
-          />
-        </div>
       </Section>
 
       {/* 5b. Contraste — mismo lugar */}
@@ -618,6 +607,21 @@ function LandingPage() {
           <img
             src="/reframe-no-siempre-gana-mas.webp"
             alt="No siempre gana más el que termina con más. Muchas veces simplemente entiende mejor qué hacer con cada peso. Hay personas que ganan bien y siguen llegando justas. Y hay personas que, ganando menos, construyen ahorro, tranquilidad y patrimonio. La diferencia no siempre está en cuánto entra. Está en lo que haces después de que entra."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
+        </div>
+      </Section>
+
+      {/* Método — 3 pasos */}
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-md">
+          <img
+            src="/metodo-orden-3-pasos.webp"
+            alt="El método: primero entiendes a dónde va tu dinero, después apartas una parte para protegerte y entonces empiezas a hacerlo crecer"
             width={1024}
             height={1536}
             loading="lazy"
