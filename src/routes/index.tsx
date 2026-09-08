@@ -652,34 +652,18 @@ function LandingPage() {
       </Section>
 
       {/* 9. Cómo se nota la diferencia en 60 días */}
-      <Section eyebrow="Lo que vas a empezar a notar">
-        <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
-          <h2 className="text-balance text-3xl font-extrabold sm:text-4xl">
-            Cómo se te va a notar en los <span className="text-accent">próximos 60 días</span>
-          </h2>
-          <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-            Menos estrés. Más control. Un futuro más tranquilo.
-          </p>
+      <Section flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/60-dias-cambios.webp"
+            alt="Lo que puedes lograr: cómo se te va a notar en los próximos 60 días. Menos estrés, más control, un futuro más tranquilo. 01 vas a entender a dónde se va tu dinero. 02 vas a tener una reserva que te dé tranquilidad. 03 vas a dar tus primeros pasos para hacerlo crecer. 04 vas a gastar con más intención y menos culpa. 05 vas a sentir que tienes el control de tu dinero. Un mejor manejo hoy, para más libertad mañana."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
-
-        <ul className="mx-auto max-w-2xl space-y-4">
-          {SIXTY_DAY_CHANGES.map((c, i) => (
-            <li key={c.title} className="card-surface flex items-center gap-5 p-5">
-              <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[color:var(--gold)]/50 bg-background/60 text-[color:var(--gold)]">
-                {c.icon}
-                <span className="absolute -left-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-black text-accent-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </span>
-              <div className="border-l border-border/60 pl-4">
-                <p className="font-display text-base font-extrabold leading-tight sm:text-lg">
-                  {c.title} <span className="text-accent">{c.highlight}</span>
-                </p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
 
         <div className="mx-auto mt-10 max-w-xl border-t border-border/60 pt-8 text-center">
           <p className="text-sm font-semibold text-muted-foreground">
