@@ -627,21 +627,6 @@ function LandingPage() {
         </div>
       </Section>
 
-      {/* 7. El nuevo mecanismo */}
-      <Section tone="light" flush>
-        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
-          <img
-            src="/no-hacer-todo-de-golpe.webp"
-            alt="No necesitas hacer todo de golpe. Solo empezar en el orden correcto. La mayoría intenta invertir antes de ordenar su dinero y por eso se frustra. Un camino simple: 01 entiendes a dónde se está yendo tu dinero, 02 gastas sin culpa, 03 construyes una reserva, 04 empiezas a invertir. El resultado: menos ansiedad, más claridad, mejores decisiones."
-            width={1024}
-            height={1536}
-            loading="lazy"
-            decoding="async"
-            className="h-auto w-full sm:rounded-2xl"
-          />
-        </div>
-      </Section>
-
       {/* 9. Cómo se nota la diferencia en 60 días */}
       <Section eyebrow="Lo que vas a empezar a notar">
         <div className="mx-auto -mt-4 mb-10 max-w-2xl text-center">
@@ -685,6 +670,21 @@ function LandingPage() {
           <a href={CHECKOUT} className="btn-cta">
             Quiero empezar hoy
           </a>
+        </div>
+      </Section>
+
+      {/* 7. El nuevo mecanismo */}
+      <Section tone="light" flush>
+        <div className="bleed-mobile sm:mx-auto sm:max-w-lg">
+          <img
+            src="/no-hacer-todo-de-golpe.webp"
+            alt="No necesitas hacer todo de golpe. Solo empezar en el orden correcto. La mayoría intenta invertir antes de ordenar su dinero y por eso se frustra. Un camino simple: 01 entiendes a dónde se está yendo tu dinero, 02 gastas sin culpa, 03 construyes una reserva, 04 empiezas a invertir. El resultado: menos ansiedad, más claridad, mejores decisiones."
+            width={1024}
+            height={1536}
+            loading="lazy"
+            decoding="async"
+            className="h-auto w-full sm:rounded-2xl"
+          />
         </div>
       </Section>
 
